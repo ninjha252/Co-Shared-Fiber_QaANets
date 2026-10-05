@@ -1,0 +1,76 @@
+# ILLUSTRATIVE physical scenario.  Every optical input below is a declared
+# assumption or a literature-form model; no measured optical data were
+# supplied for this study.  Results are NOT calibrated predictions.
+scenario_id: legacy_reserved_window
+calibration_status: uncalibrated_illustrative
+thermal_model_status: aggregate_thermal_approximation_assumed
+
+deployment:
+  classical_frequencies_ghz: [191600, 191700, 191800, 191900, 192700, 192800,
+    192900, 193000, 193100, 193300, 193400, 193500, 193600, 193700, 193800,
+    193900, 194000, 194100, 194200, 194300, 194400, 194500, 194600, 194700,
+    194800, 194900, 195100, 195200, 195300, 195400, 195500, 195600, 195700,
+    195800, 195900]
+  classical_launch_dbm_per_channel: -5.0
+  classical_direction: A_to_B
+  quantum_directions: [A_to_B, B_to_A, A_to_B]
+  classical_tx_terminal: A
+  quantum_rx_terminal: [B, A, B]
+
+link:
+  length_km_per_traversal: 10.0
+  eta_insertion_per_pass: 0.82        # split symmetrically into eta_tx * eta_rx
+  e0_per_pass: 0.002
+  mode_fwhm_ghz: 10.0
+  filter_fwhm_ghz: 25.0
+  filter_order: 4
+  filter_isolation_db: 110.0
+  receiver_mode_convention: fixed_mode_overlap   # |int |psi|^2 sqrt(T_q) df|^2
+  modeled_domain_nm: [1500.0, 1600.0]
+
+optics:
+  attenuation_source: tabulated_smf28        # legacy data_templates/attenuation_smf28.csv
+  attenuation_csv: data/raw/attenuation_smf28.csv
+  attenuation_valid_nm: [1290.0, 1700.0]     # tabulated range; NOT all datasheet spec
+  attenuation_anchor_nm: 1550.0              # used only by analytic_three_term
+  attenuation_anchor_db_km: 0.180
+  dispersion_D_ps_nm_km: 17.0
+  dispersion_S_ps_nm2_km: 0.058
+  beta2_s2_m: -21.7e-27                      # legacy Params value
+  beta3_s3_m: 0.12e-39                       # legacy Params value
+  n_group: 1.468                             # legacy Params value
+  gamma_per_w_km: 1.3                        # legacy gamma_per_w_m = 1.3e-3
+  fwm_convention: conventional_gamma   # d = 1 (i==j) / 2 (i!=j) with this gamma
+  fwm_profile_rms_ghz: 0.0             # 0 = analytic narrow-line limit
+  raman_model: hollenbeck_cantrell_2002
+  raman_scale: 1.0
+  temperature_k: 300.0
+  mod_rms_ghz: 25.0                          # legacy classical_symbol_rate_ghz
+  tx_broadband_floor_per_hz: 2.5e-14
+  leak_isolation_remote_db: 110.0            # legacy isolation_db
+  leak_isolation_local_db: 90.0
+  xpm_kappa: 1.0                             # legacy xpm_pol_kappa
+  xpm_rel_fluct: 1.0                         # legacy xpm_modulation_index (full OOK)
+  xpm_band_ghz: 25.0                         # legacy classical_symbol_rate_ghz
+
+search:
+  hardware_domain_nm: [1530.0, 1565.0]
+  guard_band_ghz: 50.0
+  tuning_margin_ghz: 1.0               # illustrative added tuning margin (scenario choice)
+  reserved_window_nm: [1556.0, 1561.5]
+  restrict_quantum_to_reserved_window: true
+  grid_step_ghz: 2.0
+  refine_step_ghz: 1.0
+
+targets:
+  F_min: 0.99
+  Y_min: 1.0e-6
+  epsilon: 0.05
+  F_min_sensitivity: [0.95, 0.99, 0.999]
+  Y_min_sensitivity: [1.0e-8, 1.0e-6, 1.0e-4]
+  fixed_reference_nm: 1550.0      # chosen before any optimum was examined
+
+numerics:
+  gauss_hermite_order: 48
+  gauss_hermite_check_order: 96
+  mode_line_window_sigma: 12.0

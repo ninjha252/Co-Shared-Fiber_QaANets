@@ -1,0 +1,20 @@
+wavelength_nm,attenuation_db_km
+# Corning SMF-28 Ultra (ITU-T G.652.D) datasheet MAXIMUM attenuation values.
+# Source: Corning SMF-28 Ultra product information sheet (PI-1424-AEN).
+# Datasheet anchors (nm, dB/km): 1310=0.32, 1383=0.32, 1490=0.21, 1550=0.18, 1625=0.20.
+# Points below 1300 nm and above 1625 nm are mild Rayleigh/IR-edge extrapolations
+# (the datasheet does not spec outside 1310-1625) so the curve covers the full
+# quantum sweep range; they are labeled here and should not be quoted as spec.
+1290,0.326
+1300,0.323
+1310,0.320
+1383,0.320
+1490,0.210
+1520,0.192
+1550,0.180
+1565,0.183
+1580,0.186
+1625,0.200
+1650,0.210
+1670,0.222
+1700,0.245

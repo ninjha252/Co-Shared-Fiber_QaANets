@@ -1,0 +1,30 @@
+# Synthetic validation configuration.  Exercises the mathematics across a useful
+# domain independently of any fibre calibration.
+scenario_id: validation
+benchmark:                      # Methods: synthetic reference point
+  eta_pass: [0.55, 0.55, 0.55]
+  nu_pass_per_polarization: [0.0003, 0.0003, 0.0003]
+  e0_pass: [0.002, 0.002, 0.002]
+  z_pass: [0.00001, 0.0, 0.00001]
+  code: {n: 7, k: 1, d: 3}
+  private_operations: identity
+  recovery: fixed_css_hamming
+optical_dilation:
+  T_grid: [0.05, 0.2, 0.6, 0.9]
+  nu_log_min: -6
+  nu_log_max: -1
+  nu_points: 13
+  include_nu_zero: true
+  random_interior_points: 12
+  random_seed: 20260908
+  thermal_tail_tolerances: [1.0e-8, 1.0e-10, 1.0e-12, 1.0e-14, 1.0e-16]
+  target_absolute_tolerance: 1.0e-9
+  target_conditional_tolerance: 1.0e-7
+decoder_sweep:                  # Methods: noise sweep
+  u_min: 1.0e-3
+  u_max: 10.0
+  u_points: 33
+  include_u_zero: true
+  n_random_key_sets: 16
+  key_seed: 20260908
+  fixed_nonclifford: {axis: y, theta_A: 0.6283185307179586, theta_B: 1.0471975511965976}
