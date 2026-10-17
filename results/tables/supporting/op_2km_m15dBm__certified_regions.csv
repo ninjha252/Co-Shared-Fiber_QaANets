@@ -1,0 +1,13 @@
+region,n_intervals,interval_index,lambda_lo_nm,lambda_hi_nm,width_nm,n_grid_points,status
+Omega_q,3,0,1556.1589107651741,1561.8176409604534,5.658730195279304,352,grid-endpoint span; isolated points have zero width
+Omega_q,3,1,1551.3273445140726,1552.1144493168556,0.7871048027830057,51,grid-endpoint span; isolated points have zero width
+Omega_q,3,2,1537.0109972365917,1537.78363793979,0.772640703198249,51,grid-endpoint span; isolated points have zero width
+Omega_F,3,0,1556.1589107651741,1561.8176409604534,5.658730195279304,352,grid-endpoint span; isolated points have zero width
+Omega_F,3,1,1551.3273445140726,1552.1144493168556,0.7871048027830057,51,grid-endpoint span; isolated points have zero width
+Omega_F,3,2,1537.0109972365917,1537.78363793979,0.772640703198249,51,grid-endpoint span; isolated points have zero width
+W_q,3,0,1556.1589107651741,1561.8176409604534,5.658730195279304,352,grid-endpoint span; isolated points have zero width
+W_q,3,1,1551.3273445140726,1552.1144493168556,0.7871048027830057,51,grid-endpoint span; isolated points have zero width
+W_q,3,2,1537.0109972365917,1537.78363793979,0.772640703198249,51,grid-endpoint span; isolated points have zero width
+N_epsilon,3,0,1556.1589107651741,1561.8176409604534,5.658730195279304,352,grid-endpoint span; isolated points have zero width
+N_epsilon,3,1,1551.3273445140726,1552.1144493168556,0.7871048027830057,51,grid-endpoint span; isolated points have zero width
+N_epsilon,3,2,1537.0109972365917,1537.78363793979,0.772640703198249,51,grid-endpoint span; isolated points have zero width

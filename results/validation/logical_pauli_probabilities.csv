@@ -1,0 +1,5 @@
+indexing,pauli,net_physical_probability,recovered_logical_probability
+"(I,X,Z,Y) with index = x + 2z",I,0.9869094655280424,0.9973252675435783
+"(I,X,Z,Y) with index = x + 2z",X,0.0043569610751194,0.001137025317910937
+"(I,X,Z,Y) with index = x + 2z",Z,0.004376612321718958,0.0011437966133010483
+"(I,X,Z,Y) with index = x + 2z",Y,0.0043569610751194,0.0003939105252053874

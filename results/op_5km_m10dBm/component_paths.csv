@@ -1,0 +1,19 @@
+pass,path,plane_in,plane_out,transmission,spectral,included_once,note,direction,raman_direction,leakage_path,fwm_collected
+1,quantum_signal_launch,quantum source,fibre input,0.9055385138137416,flat,True,legacy eta_insertion_per_pass=0.82 split symmetrically; contents never specified,A_to_B,co,remote,True
+1,quantum_signal_span,fibre input,fibre output,exp(-a(lambda_q) L),yes,True,L = 5000.0 m,A_to_B,co,remote,True
+1,quantum_signal_receive,fibre output,filter input,0.9055385138137416,flat,True,legacy eta_insertion_per_pass=0.82 split symmetrically; contents never specified,A_to_B,co,remote,True
+1,quantum_signal_filter,filter input,accepted mode,int |psi|^2 T_q(f) df,yes,True,applied once; noise sees T_q(f) in the nu integral,A_to_B,co,remote,True
+1,in_span_background,distributed in fibre,accepted mode,eta_rx * T_q(f),yes,True,in-span propagation already inside the Raman/FWM integrals,A_to_B,co,remote,True
+1,classical_leakage,classical transmitter,accepted mode,"T_sys(f) (path-specific, includes isolation)",yes,True,local vs remote path selected per pass,A_to_B,co,remote,True
+2,quantum_signal_launch,quantum source,fibre input,0.9055385138137416,flat,True,legacy eta_insertion_per_pass=0.82 split symmetrically; contents never specified,B_to_A,counter,local,False
+2,quantum_signal_span,fibre input,fibre output,exp(-a(lambda_q) L),yes,True,L = 5000.0 m,B_to_A,counter,local,False
+2,quantum_signal_receive,fibre output,filter input,0.9055385138137416,flat,True,legacy eta_insertion_per_pass=0.82 split symmetrically; contents never specified,B_to_A,counter,local,False
+2,quantum_signal_filter,filter input,accepted mode,int |psi|^2 T_q(f) df,yes,True,applied once; noise sees T_q(f) in the nu integral,B_to_A,counter,local,False
+2,in_span_background,distributed in fibre,accepted mode,eta_rx * T_q(f),yes,True,in-span propagation already inside the Raman/FWM integrals,B_to_A,counter,local,False
+2,classical_leakage,classical transmitter,accepted mode,"T_sys(f) (path-specific, includes isolation)",yes,True,local vs remote path selected per pass,B_to_A,counter,local,False
+3,quantum_signal_launch,quantum source,fibre input,0.9055385138137416,flat,True,legacy eta_insertion_per_pass=0.82 split symmetrically; contents never specified,A_to_B,co,remote,True
+3,quantum_signal_span,fibre input,fibre output,exp(-a(lambda_q) L),yes,True,L = 5000.0 m,A_to_B,co,remote,True
+3,quantum_signal_receive,fibre output,filter input,0.9055385138137416,flat,True,legacy eta_insertion_per_pass=0.82 split symmetrically; contents never specified,A_to_B,co,remote,True
+3,quantum_signal_filter,filter input,accepted mode,int |psi|^2 T_q(f) df,yes,True,applied once; noise sees T_q(f) in the nu integral,A_to_B,co,remote,True
+3,in_span_background,distributed in fibre,accepted mode,eta_rx * T_q(f),yes,True,in-span propagation already inside the Raman/FWM integrals,A_to_B,co,remote,True
+3,classical_leakage,classical transmitter,accepted mode,"T_sys(f) (path-specific, includes isolation)",yes,True,local vs remote path selected per pass,A_to_B,co,remote,True
