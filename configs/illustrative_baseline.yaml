@@ -73,10 +73,11 @@ classical_link:
       rx_sensitivity_dbm: -36.8
       source: "Patel et al., Phys. Rev. X 2, 041010 (2012), measured sensitivity"
     - id: rx_10g_apd
-      label: "10 Gb/s DWDM APD receiver (datasheet)"
+      label: "10.7 Gb/s receiver (assumed benchmark)"
       data_rate_gbps: 10.7
       rx_sensitivity_dbm: -24.0
-      source: "Lumentum tunable SFP+ DWDM datasheet, BER 1e-12, back-to-back"
+      source: "Assumed -24 dBm receiver sensitivity benchmark; not a measured or datasheet value"
+      provenance_category: "illustrative_assumption"
   mux_insertion_db: 3.0        # assumed multiplexer insertion loss
   demux_insertion_db: 3.0      # assumed demultiplexer insertion loss
   system_margin_db: 3.0        # assumed engineering margin
