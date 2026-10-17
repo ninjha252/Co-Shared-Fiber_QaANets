@@ -6,9 +6,10 @@ the physical channel, a correctable-history fidelity bound for a
 [[7,1,3]] Steane block, and the quantum-wavelength selection that follows from
 them under a fixed classical allocation.
 
-The repository reproduces every figure and table in the paper from the stored
-configurations, and it re-derives the stored results from scratch with one
-command.
+The repository generates the numerical figures and full source tables that
+support the paper from the stored configurations. The manuscript presents
+selected rows and reformatted tables. All numerical stages can be rerun from
+scratch with one command.
 
 ## Two separate questions
 
@@ -25,7 +26,8 @@ The code keeps these apart, and so does the output:
 published Hollenbeck–Cantrell fit to the measured gain of fused silica,
 normalized at the measured coefficient of Qi et al. (2010); the attenuation is
 tabulated from manufacturer maxima; the classical receivers are a measured
-sensitivity (Patel et al. 2012) and a datasheet value; the base error is swept
+sensitivity from the literature (Patel et al. 2012) and an assumed -24 dBm
+benchmark at 10.7 Gb/s; the base error is swept
 over published polarization-QKD values. Every input is recorded per row with
 its source in `results/*/provenance.csv` and in Main Table 1, and every
 wavelength reported here is conditional on those inputs.
@@ -38,8 +40,8 @@ python3.12 -m venv .venv
 ```
 
 Tested with Python 3.12.14, numpy 2.5.3, scipy 1.18.1, pandas 3.0.5,
-matplotlib 3.11.1, PyYAML 6.0.3 and pytest on macOS (arm64). No compiled
-extensions and no network access are required.
+matplotlib 3.11.1, PyYAML 6.0.3 and pytest 8.4.2 on Linux (x86_64).
+Dependency installation requires the packages; the simulations run offline.
 
 ## Reproducing the study
 
@@ -55,7 +57,7 @@ extensions and no network access are required.
 | Logical validation | `validate_decoder.py` | encoder, recovery and bound checks; the noise sweep |
 | Optical validation | `validate_optics.py` | impairment-model checks; the independent optical construction |
 | Unit tests | `pytest` | fast regression tests, including fault injection |
-| Operating points | `run_baseline.py` × 8 | the four predeclared points with a 1 GHz tuning margin, and the same four with none |
+| Operating points | `run_baseline.py` × 9 | the four diagnostic anchors with a 1 GHz tuning margin and with none, plus the 6 km, -10 dBm/ch selector comparison at 1 GHz margin |
 | Reserved window | `run_baseline.py` | the restricted-search comparison |
 | Operating map | `run_operating_map.py` | 30 lengths × 31 launch powers, with the largest admissible base error at each point |
 | Guard and margin | `run_guard_margin.py` | guards 49/50/51 GHz × margins 0/1/2/2.5/5 GHz |
@@ -65,8 +67,9 @@ extensions and no network access are required.
 | Sensitivity | `run_sensitivity.py` | ablations, scenarios, robust selection |
 | Outputs | `make_figures.py`, `make_tables.py`, `make_reports.py` | figures, tables and reports, from stored CSVs only |
 
-Figures and tables never recompute physics: they read the CSVs written by the
-run scripts, so a plot cannot disagree with the data behind it.
+Figures and tables read the CSVs written by the run scripts. Regenerate them
+after changing the inputs or numerical implementation so they reflect the
+corresponding run.
 
 ### Running one operating point
 
@@ -142,13 +145,13 @@ results/     stored outputs of the recorded runs (see below)
 - `CHANGES.md` at the repository root records each correction made to the
   earlier implementation, its mathematical basis, and what it changed.
 
-Per-candidate scans (`wavelength_scan.csv`) are stored gzip-compressed to keep
-the repository small; the readers accept either form, and rerunning a stage
-writes the uncompressed file.
+Per-candidate scans are stored as `wavelength_scan.csv`. The readers also accept
+gzip-compressed copies from earlier releases; rerunning a stage writes the
+uncompressed file.
 
-Every run script writes a manifest containing the resolved configuration, input
-file SHA-256 hashes, seeds, package versions, source file hashes, tolerances,
-wall time and output paths. `results/run_metadata.json` aggregates them.
+Run manifests record the resolved configuration, package versions, source file
+hashes, wall time and output paths, with input hashes, seeds and tolerances
+where registered by the stage. `results/run_metadata.json` aggregates them.
 
 ## Conventions worth knowing before reading the code
 
