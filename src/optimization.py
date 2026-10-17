@@ -67,15 +67,25 @@ def scan_wavelengths(sc, f_grid, e0_per_pass=None, n=7, t=1, progress=None):
     return cols
 
 
-def intervals_from_mask(x, mask):
-    """Contiguous [x_lo, x_hi] runs of True in `mask`, as grid-endpoint spans."""
+def intervals_from_mask(x, mask, grid_indices=None):
+    """Contiguous [x_lo, x_hi] runs of True, as grid-endpoint spans.
+
+    For a filtered grid, supply its indices in the original full grid so that
+    excluded candidates still separate intervals. No spacing threshold is used.
+    """
     x = np.asarray(x); mask = np.asarray(mask, dtype=bool)
+    indices = (np.arange(len(mask)) if grid_indices is None
+               else np.asarray(grid_indices))
+    if x.ndim != 1 or mask.ndim != 1 or indices.ndim != 1 or not (
+            len(x) == len(mask) == len(indices)):
+        raise ValueError("x, mask and grid_indices must be equal-length vectors")
     out = []
     i = 0
     while i < len(mask):
         if mask[i]:
             j = i
-            while j + 1 < len(mask) and mask[j + 1]:
+            while (j + 1 < len(mask) and mask[j + 1]
+                   and indices[j + 1] == indices[j] + 1):
                 j += 1
             out.append((float(min(x[i], x[j])), float(max(x[i], x[j]))))
             i = j + 1

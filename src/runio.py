@@ -313,7 +313,8 @@ def provenance_rows(cfg=None, scenario=None):
         *[row(f"classical_receiver_{rx['id']}", "S_rx",
               f"{float(rx['rx_sensitivity_dbm']):g}", "dBm",
               "classical receiver input", str(rx["source"]),
-              (L if "measured" in str(rx["source"]) else M), "-",
+              rx.get("provenance_category",
+                     L if "measured" in str(rx["source"]) else M), "-",
               f"{rx['label']}; sets the link-budget minimum launch power")
           for rx in cfg.get("classical_link", {}).get("receivers", [])],
         *([row("classical_link_terms", "IL_mux, IL_demux, M",

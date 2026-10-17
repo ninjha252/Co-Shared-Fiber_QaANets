@@ -144,13 +144,19 @@ def occupancy_from_profiled_lines(mode, power_w, f_line_hz, rms_hz,
                            * np.asarray(transfer_fn(f_line_hz), dtype=float)
                            / (H_PLANCK * f_line_hz)))
         return val if per_polarization else 0.5 * val
+    # Multiply the two Gaussian densities analytically. Sampling their product
+    # resolves the accepted mode even when the generated profile is broad.
+    variance_sum = mode.sigma ** 2 + float(rms_hz) ** 2
+    offset = f_line_hz - mode.f0
+    center = mode.f0 + offset * (mode.sigma ** 2 / variance_sum)
+    sigma = mode.sigma * float(rms_hz) / np.sqrt(variance_sum)
+    overlap = np.exp(-0.5 * offset ** 2 / variance_sum) / np.sqrt(
+        2.0 * np.pi * variance_sum)
     x, w = np.polynomial.hermite.hermgauss(int(order))
-    w = w / np.sqrt(np.pi)
-    # f[l, k] = f_l + sqrt(2) sigma_p x_k
-    f = f_line_hz[:, None] + np.sqrt(2.0) * float(rms_hz) * x[None, :]
-    integ = (mode.intensity(f) * np.asarray(transfer_fn(f), dtype=float)
-             / (H_PLANCK * f))
-    val = float(np.sum(power_w[:, None] * w[None, :] * integ))
+    f = center[:, None] + np.sqrt(2.0) * sigma * x[None, :]
+    w = overlap[:, None] * (w[None, :] / np.sqrt(np.pi))
+    integ = np.asarray(transfer_fn(f), dtype=float) / (H_PLANCK * f)
+    val = float(np.sum(power_w[:, None] * w * integ))
     return val if per_polarization else 0.5 * val
 
 

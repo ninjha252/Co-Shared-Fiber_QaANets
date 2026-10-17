@@ -99,14 +99,22 @@ def full_chain_reference(sc, f_q, e0_per_pass=None, sigma2_phi=None, order=None)
             pl = prods.power_incoherent_w[lo:hi]
             if len(fl):
                 if sc.fwm_profile_rms_hz > 0:
+                    # Resolve the product of the line profile and accepted
+                    # mode, rather than sampling the broad line alone.
+                    variance_sum = mode.sigma ** 2 + sc.fwm_profile_rms_hz ** 2
+                    offset = fl - mode.f0
+                    center = mode.f0 + offset * (mode.sigma ** 2 / variance_sum)
+                    sigma = mode.sigma * sc.fwm_profile_rms_hz / np.sqrt(variance_sum)
+                    overlap = np.exp(-0.5 * offset ** 2 / variance_sum) / np.sqrt(
+                        2.0 * np.pi * variance_sum)
                     x, wl = np.polynomial.hermite.hermgauss(order)
-                    wl = wl / np.sqrt(np.pi)
-                    ff = fl[:, None] + np.sqrt(2.0) * sc.fwm_profile_rms_hz * x[None, :]
+                    ff = center[:, None] + np.sqrt(2.0) * sigma * x[None, :]
+                    wl = overlap[:, None] * (wl[None, :] / np.sqrt(np.pi))
                     fo = np.ones_like(ff)
                     for _ in range(2 - m):
                         fo = fo * np.abs(_amp_traversal(sc, filt, ff)) ** 2
                     part += 0.5 * float(np.sum(
-                        pl[:, None] * wl[None, :] * mode.intensity(ff)
+                        pl[:, None] * wl
                         * sc.eta_rx * filt(ff) * fo / (H_PLANCK * ff)))
                 else:
                     fo = np.ones_like(fl)
