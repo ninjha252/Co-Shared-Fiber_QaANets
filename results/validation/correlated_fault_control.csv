@@ -1,0 +1,2 @@
+control,p,exact_logical_Fe,iid_binomial_C_7_1,iid_bound_exceeds_exact,markov_support_bound,note
+correlated Z^{(x)7} with probability p,0.001,0.999,0.999979069895084,True,0.9965,intentional test OUTSIDE the i.i.d. hypotheses; not a counterexample to the theorem under its hypotheses

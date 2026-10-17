@@ -1,0 +1,6 @@
+refinement,setting,held_fixed,n_Omega_F,lambda_star_nm,max_Y_lb,C_at_star,relative_change_Y_lb,absolute_change_C,lambda_shift_nm
+wavelength grid,1 GHz step,Gauss-Hermite order 48,938,1550.5169795707266,0.00016382548077332015,0.9924661263332729,0.0,0.0,0.0
+wavelength grid,0.5 GHz step,Gauss-Hermite order 48,1838,1550.5169795707266,0.00016382548077332015,0.9924661263332729,0.0,0.0,0.0
+quadrature,Gauss-Hermite order 96,2 GHz grid step,488,1550.5169795707266,0.00016382548074313956,0.9924661269419871,1.8422398864516563e-10,6.087141901645055e-10,0.0
+reference solve,"2 GHz grid, Gauss-Hermite order 48",-,488,1550.5169795707266,0.00016382548077332015,0.9924661263332729,0.0,0.0,0.0
+nu contribution sum residual,-,-,488,nan,nan,nan,nan,8.673617379884035e-19,nan

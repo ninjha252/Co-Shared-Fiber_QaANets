@@ -1,0 +1,32 @@
+launch_dbm,boundary_length_km,method,n_sign_changes_on_the_sampled_grid,grid_lower_km,grid_upper_km,n_boundary_evaluations,max_C_at_boundary,residual_in_C,status,lambda_subset_size,subset_maximization_verified_against_full_domain
+-30.0,nan,direct re-evaluation; bracketed bisection,0,nan,nan,0,nan,nan,no crossing on the sampled 1-30 km grid: certified throughout,,
+-29.0,nan,direct re-evaluation; bracketed bisection,0,nan,nan,0,nan,nan,no crossing on the sampled 1-30 km grid: certified throughout,,
+-28.0,nan,direct re-evaluation; bracketed bisection,0,nan,nan,0,nan,nan,no crossing on the sampled 1-30 km grid: certified throughout,,
+-27.0,nan,direct re-evaluation; bracketed bisection,0,nan,nan,0,nan,nan,no crossing on the sampled 1-30 km grid: certified throughout,,
+-26.0,nan,direct re-evaluation; bracketed bisection,0,nan,nan,0,nan,nan,no crossing on the sampled 1-30 km grid: certified throughout,,
+-25.0,nan,direct re-evaluation; bracketed bisection,0,nan,nan,0,nan,nan,no crossing on the sampled 1-30 km grid: certified throughout,,
+-24.0,28.576171875,direct re-evaluation; bracketed bisection,1,28.0,29.0,9,0.9899994755313989,5.244686011041111e-07,converged,32,True
+-23.0,26.55078125,direct re-evaluation; bracketed bisection,1,26.0,27.0,8,0.9900001369434701,1.3694347011927732e-07,converged,32,True
+-22.0,24.5673828125,direct re-evaluation; bracketed bisection,1,24.0,25.0,10,0.9900002310763169,2.310763168589247e-07,converged,32,True
+-21.0,22.6318359375,direct re-evaluation; bracketed bisection,1,22.0,23.0,10,0.9900001334929862,1.3349298622067352e-07,converged,32,True
+-20.0,20.7509765625,direct re-evaluation; bracketed bisection,1,20.0,21.0,10,0.9900000231916333,2.3191633280461588e-08,converged,32,True
+-19.0,18.9326171875,direct re-evaluation; bracketed bisection,1,18.0,19.0,10,0.9899996844994022,3.1550059775842243e-07,converged,32,True
+-18.0,17.1845703125,direct re-evaluation; bracketed bisection,1,17.0,18.0,10,0.9899995670388875,4.329611125175603e-07,converged,32,True
+-17.0,15.5146484375,direct re-evaluation; bracketed bisection,1,15.0,16.0,10,0.9900003614305414,3.6143054138459974e-07,converged,32,True
+-16.0,13.931640625,direct re-evaluation; bracketed bisection,1,13.0,14.0,9,0.9900006214893727,6.214893727429782e-07,converged,32,True
+-15.0,12.4423828125,direct re-evaluation; bracketed bisection,1,12.0,13.0,10,0.99000046443211,4.6443210999225215e-07,converged,32,True
+-14.0,11.052734375,direct re-evaluation; bracketed bisection,1,11.0,12.0,9,0.9899991933397465,8.066602534828604e-07,converged,32,True
+-13.0,9.7646484375,direct re-evaluation; bracketed bisection,1,9.0,10.0,10,0.9900003576650249,3.576650249303981e-07,converged,32,True
+-12.0,8.58203125,direct re-evaluation; bracketed bisection,1,8.0,9.0,8,0.9899995668964537,4.3310354624903624e-07,converged,32,True
+-11.0,7.5029296875,direct re-evaluation; bracketed bisection,1,7.0,8.0,10,0.9900004377023981,4.37702398103923e-07,converged,32,True
+-10.0,6.5263671875,direct re-evaluation; bracketed bisection,1,6.0,7.0,10,0.9900001019807237,1.019807237545578e-07,converged,32,True
+-9.0,5.64794921875,direct re-evaluation; bracketed bisection,1,5.0,6.0,11,0.9900002081825389,2.0818253887444627e-07,converged,32,True
+-8.0,4.86328125,direct re-evaluation; bracketed bisection,1,4.0,5.0,8,0.9899990600165818,9.399834182133304e-07,converged,32,True
+-7.0,4.16552734375,direct re-evaluation; bracketed bisection,1,4.0,5.0,11,0.9900006558414705,6.558414704649351e-07,converged,32,True
+-6.0,3.5498046875,direct re-evaluation; bracketed bisection,1,3.0,4.0,10,0.9900001925683165,1.9256831651492945e-07,converged,32,True
+-5.0,3.00927734375,direct re-evaluation; bracketed bisection,1,3.0,4.0,11,0.9899991482709348,8.517290651655074e-07,converged,32,True
+-4.0,2.537109375,direct re-evaluation; bracketed bisection,1,2.0,3.0,9,0.9900000134227283,1.3422728262213468e-08,converged,32,True
+-3.0,2.127685546875,direct re-evaluation; bracketed bisection,1,2.0,3.0,12,0.9899993018541748,6.981458251509309e-07,converged,32,True
+-2.0,1.7744140625,direct re-evaluation; bracketed bisection,1,1.0,2.0,10,0.9900007165084439,7.165084439098024e-07,converged,32,True
+-1.0,1.47216796875,direct re-evaluation; bracketed bisection,1,1.0,2.0,11,0.9899991153172026,8.846827973529869e-07,converged,32,True
+0.0,1.21484375,direct re-evaluation; bracketed bisection,1,1.0,2.0,8,0.9899994111635417,5.888364582595784e-07,converged,32,True

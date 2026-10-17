@@ -1,0 +1,122 @@
+{
+  "run_id": "validation",
+  "stage": "A+C decoder validation",
+  "started_utc": "2026-10-17T15:43:25Z",
+  "config": {
+    "scenario_id": "validation",
+    "benchmark": {
+      "eta_pass": [
+        0.55,
+        0.55,
+        0.55
+      ],
+      "nu_pass_per_polarization": [
+        0.0003,
+        0.0003,
+        0.0003
+      ],
+      "e0_pass": [
+        0.002,
+        0.002,
+        0.002
+      ],
+      "z_pass": [
+        1e-05,
+        0.0,
+        1e-05
+      ],
+      "code": {
+        "n": 7,
+        "k": 1,
+        "d": 3
+      },
+      "private_operations": "identity",
+      "recovery": "fixed_css_hamming"
+    },
+    "optical_dilation": {
+      "T_grid": [
+        0.05,
+        0.2,
+        0.6,
+        0.9
+      ],
+      "nu_log_min": -6,
+      "nu_log_max": -1,
+      "nu_points": 13,
+      "include_nu_zero": true,
+      "random_interior_points": 12,
+      "random_seed": 20260908,
+      "thermal_tail_tolerances": [
+        1e-08,
+        1e-10,
+        1e-12,
+        1e-14,
+        1e-16
+      ],
+      "target_absolute_tolerance": 1e-09,
+      "target_conditional_tolerance": 1e-07
+    },
+    "decoder_sweep": {
+      "u_min": 0.001,
+      "u_max": 10.0,
+      "u_points": 33,
+      "include_u_zero": true,
+      "n_random_key_sets": 16,
+      "key_seed": 20260908,
+      "fixed_nonclifford": {
+        "axis": "y",
+        "theta_A": 0.6283185307179586,
+        "theta_B": 1.0471975511965976
+      }
+    },
+    "_path": "/workspace/scratch/ea419e3e9e42/submission-release/project/configs/validation.yaml"
+  },
+  "software": {
+    "python": "3.12.14",
+    "numpy": "2.5.3",
+    "scipy": "1.18.1",
+    "matplotlib": "3.11.1",
+    "pandas": "3.0.5",
+    "pyyaml": "6.0.3",
+    "platform": "Linux-6.18.55-x86_64-with-glibc2.39"
+  },
+  "source_sha256": {
+    "attenuation.py": "00713e675170ae7aa8859763e3330912b4224a0189f847c3a22a601032cec45a",
+    "config.py": "68d8203f2c169a245012629911496b3c2be599d2ee243c641cc8dff8d59faebc",
+    "deployment.py": "37a0bade7aaf6db55a00768d21253cfff663f411c0a7dddb171e30e8f4b7816c",
+    "fwm.py": "76598ecad9a4a3c64f34cfb84287c7f171cce64d0914bdb2851ad083365059a8",
+    "leakage.py": "f87c3444bf5ea72273093cde20d8d3ab30253be56b8eb2fea18c7e069cccd9d8",
+    "legacy_compare.py": "0f4672f97eb1ead7aa9a8ae0e32755ec3a358bd94090c432407ff962e1a6ff30",
+    "link_budget.py": "9abd310d766b8cd7466ce9c2178608edc17e7fbdf2ffbe1dc185c5a9ba3634bc",
+    "local_protocol.py": "c13b2d73320a9adec61df5f767cf3a9835e7ad72f7412a76b91019a9acbbad2c",
+    "mode_reference.py": "8badb4b86f6c37f05931a6fc69a03ee31515cae31bf4ef45a8a8030025e46aa6",
+    "modes.py": "2f49db163a85145fd11dfbd9bee9d252195d2cd4661608f834436fe4bdae675d",
+    "optical_channel.py": "dca86305cd6feb63864c523b20dd564ba35d8d2fd055aed64d941c7988b1e7fd",
+    "optical_dilation.py": "967a82617f27858613e5388de1699e406be6ac6938d2b6843c936852d1672a44",
+    "optical_link.py": "f6ed3afbdcb8bc45467d3504b4a3b8ec0d229eea4d8447ddb532f7432c609fcd",
+    "optimization.py": "77d076ca4d54bbe4175bc476c50530e20d2d644e62223ddeb472322e72b781b4",
+    "protocol.py": "7bc6488cbb2358fd2a72c54c3bf93109eb9a04c355079b53019936ff5c4ed197",
+    "raman.py": "e7fa8b4b798c59c3a732db9f292e0d5064d9b6da776313699eceb65dd0a3a4c0",
+    "reliability.py": "d808d5c60f4467167a7179d4e5a206d41882944c8dc64e8d4214f5ba1e99aa9d",
+    "runio.py": "4fd0803469ea9df0d28fd9de7b34c35169c3d8613949c61011b90cd7c69ef0f6",
+    "steane.py": "379cb574e8d7428ece4d9b62a463b283a317aa871cef1ed18af28fc4b9163575",
+    "units.py": "ec70fc54ff8a8126d7088644024c702160f804d30e0ea37fe547ecfbb73588fa",
+    "xpm.py": "7dd1afad0b09b7b3a101c2a5131c5caf0b04794fe992f5fa3c2114b2e91bd0c1"
+  },
+  "inputs": [],
+  "outputs": [
+    "results/validation/benchmark_comparison.csv",
+    "results/validation/logical_pauli_probabilities.csv",
+    "results/validation/correlated_fault_control.csv",
+    "results/validation/decoder_validation.csv",
+    "results/validation/key_sensitivity.csv",
+    "results/validation/validation_table_s2_decoder.csv"
+  ],
+  "tolerances": {
+    "benchmark_relative": 1e-12,
+    "exact_identity_absolute": 1e-10
+  },
+  "notes": [],
+  "wall_time_s": 27.324,
+  "finished_utc": "2026-10-17T15:43:53Z"
+}

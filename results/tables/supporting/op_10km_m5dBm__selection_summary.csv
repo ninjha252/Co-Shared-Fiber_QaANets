@@ -1,0 +1,8 @@
+selection_rule,lambda_selected_nm,searched_over,T,s,P_acc,q,C_bound,Y_lb,Y_ub,Fe_exact,Y_exact,in_W_q,in_N_epsilon,certificate_status
+max_Ylb_subject_to_Fmin,,-,,,,,,,,,,,,undefined: empty set
+max_T_over_Omega_q,1551.3273445140726,Omega_q,0.15410880334037658,0.16773010696536908,3.7348844278698596e-06,0.10419056266327464,0.8398185874721205,3.1366253645852844e-06,3.7348844278698596e-06,0.8771103099417076,3.27590563812539e-06,False,False,NOT certified by the lower bound
+max_T_over_Omega_F,,-,,,,,,,,,,,,undefined: empty set
+min_q_over_Omega_q,1537.0109972365917,Omega_q,0.14894881469621268,0.16051876564781442,2.7458744759605876e-06,0.09158087412597593,0.8707732130196529,2.3910339399808566e-06,2.7458744759605876e-06,0.9007708076915244,2.47340356953056e-06,False,False,NOT certified by the lower bound
+min_q_over_Omega_F,,-,,,,,,,,,,,,undefined: empty set
+fixed reference 1550.0 nm (exact),,Omega_q,,,,,,,,,,,,INVALID: the reference wavelength is excluded by the guard and margin rule at this deployment
+nearest allowed candidate to 1550.0 nm (a DISTINCT rule),1551.3273445140726,Omega_q,0.15410880334037658,0.16773010696536908,3.7348844278698596e-06,0.10419056266327464,0.8398185874721205,3.1366253645852844e-06,3.7348844278698596e-06,0.8771103099417076,3.27590563812539e-06,False,False,NOT certified by the lower bound
