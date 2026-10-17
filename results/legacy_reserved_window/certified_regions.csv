@@ -1,0 +1,5 @@
+region,n_intervals,interval_index,lambda_lo_nm,lambda_hi_nm,width_nm,n_grid_points,status
+Omega_q,1,0,1556.1589107651741,1561.5,5.3410892348258585,332,grid-endpoint span; isolated points have zero width
+Omega_F,0,,,,,0,EMPTY under the stated model and targets
+W_q,0,,,,,0,EMPTY under the stated model and targets
+N_epsilon,0,,,,,0,EMPTY under the stated model and targets

@@ -1,0 +1,133 @@
+anchor,mode,scenario,lambda_nm,C_bound,Y_lb,P_acc,certified,note
+interior_2km_-15dBm,fixed nominal wavelength,nominal,1551.3273445140726,0.9979960702998444,0.0021912210221877644,0.002195620892103733,True,the nominal optimum evaluated under each scenario
+interior_2km_-15dBm,fixed nominal wavelength,raman_scale_0.5,1551.3273445140726,0.9981817936367097,0.002195904032333779,0.002199903911624522,True,the nominal optimum evaluated under each scenario
+interior_2km_-15dBm,fixed nominal wavelength,raman_scale_2.0,1551.3273445140726,0.9975988541822063,0.0021818424385509636,0.002187093970090368,True,the nominal optimum evaluated under each scenario
+interior_2km_-15dBm,fixed nominal wavelength,raman_shape_standin_multigaussian,1551.3273445140726,0.9978533894093393,0.002187760007738088,0.0021924663792875342,True,the nominal optimum evaluated under each scenario
+interior_2km_-15dBm,fixed nominal wavelength,raman_shape_standin_oscillator,1551.3273445140726,0.9980223580950642,0.0021918711229222737,0.0021962144486481457,True,the nominal optimum evaluated under each scenario
+interior_2km_-15dBm,fixed nominal wavelength,raman_level_dasilva2014,1551.3273445140726,0.9982768117496108,0.0021983867464540566,0.0022021815197741557,True,the nominal optimum evaluated under each scenario
+interior_2km_-15dBm,fixed nominal wavelength,attenuation_analytic_model,1551.3273445140726,0.9979959088657403,0.0021951635584810405,0.0021995717006254322,True,the nominal optimum evaluated under each scenario
+interior_2km_-15dBm,fixed nominal wavelength,base_error_halved,1551.3273445140726,0.999386046738669,0.0021942728834963795,0.002195620892103733,True,the nominal optimum evaluated under each scenario
+interior_2km_-15dBm,fixed nominal wavelength,base_error_doubled,1551.3273445140726,0.992999443879385,0.002180250324828966,0.002195620892103733,True,the nominal optimum evaluated under each scenario
+interior_2km_-15dBm,fixed nominal wavelength,xpm_kappa_0.25,1551.3273445140726,0.9979960910598342,0.0021912210677688315,0.002195620892103733,True,the nominal optimum evaluated under each scenario
+interior_2km_-15dBm,fixed nominal wavelength,leak_isolation_minus_10dB,1551.3273445140726,0.997994034851482,0.002191170852295786,0.002195575099426189,True,the nominal optimum evaluated under each scenario
+interior_2km_-15dBm,fixed nominal wavelength,tx_floor_x10,1551.3273445140726,0.9979954671329593,0.0021912061527966493,0.0021956073198323685,True,the nominal optimum evaluated under each scenario
+interior_2km_-15dBm,fixed nominal wavelength,fwm_profile_1GHz,1551.3273445140726,0.9979960702998444,0.0021912210221877644,0.002195620892103733,True,the nominal optimum evaluated under each scenario
+interior_2km_-15dBm,fixed nominal wavelength,fwm_profile_5GHz,1551.3273445140726,0.9979960702998444,0.0021912210221877644,0.002195620892103733,True,the nominal optimum evaluated under each scenario
+interior_2km_-15dBm,fixed nominal wavelength,fwm_profile_25GHz,1551.3273445140726,0.9979957858679517,0.0021912140100546567,0.0021956144916473463,True,the nominal optimum evaluated under each scenario
+interior_2km_-15dBm,fixed nominal wavelength,receiver_power_average,1551.3273445140726,0.9979981559265423,0.0022501784232511267,0.002254691964998732,True,the nominal optimum evaluated under each scenario
+interior_2km_-15dBm,retuned per scenario,nominal,1551.3273445140726,0.9979960702998444,0.0021912210221877644,0.002195620892103733,True,scenario-specific re-optimization
+interior_2km_-15dBm,retuned per scenario,raman_scale_0.5,1551.3273445140726,0.9981817936367097,0.002195904032333779,0.002199903911624522,True,scenario-specific re-optimization
+interior_2km_-15dBm,retuned per scenario,raman_scale_2.0,1551.3273445140726,0.9975988541822063,0.0021818424385509636,0.002187093970090368,True,scenario-specific re-optimization
+interior_2km_-15dBm,retuned per scenario,raman_shape_standin_multigaussian,1551.3273445140726,0.9978533894093393,0.002187760007738088,0.0021924663792875342,True,scenario-specific re-optimization
+interior_2km_-15dBm,retuned per scenario,raman_shape_standin_oscillator,1551.3273445140726,0.9980223580950642,0.0021918711229222737,0.0021962144486481457,True,scenario-specific re-optimization
+interior_2km_-15dBm,retuned per scenario,raman_level_dasilva2014,1551.3273445140726,0.9982768117496108,0.0021983867464540566,0.0022021815197741557,True,scenario-specific re-optimization
+interior_2km_-15dBm,retuned per scenario,attenuation_analytic_model,1537.78363793979,0.9980575396133372,0.002198901377031144,0.0022031809687876633,True,scenario-specific re-optimization
+interior_2km_-15dBm,retuned per scenario,base_error_halved,1551.3273445140726,0.999386046738669,0.0021942728834963795,0.002195620892103733,True,scenario-specific re-optimization
+interior_2km_-15dBm,retuned per scenario,base_error_doubled,1551.3273445140726,0.992999443879385,0.002180250324828966,0.002195620892103733,True,scenario-specific re-optimization
+interior_2km_-15dBm,retuned per scenario,xpm_kappa_0.25,1551.3273445140726,0.9979960910598342,0.0021912210677688315,0.002195620892103733,True,scenario-specific re-optimization
+interior_2km_-15dBm,retuned per scenario,leak_isolation_minus_10dB,1551.3273445140726,0.997994034851482,0.002191170852295786,0.002195575099426189,True,scenario-specific re-optimization
+interior_2km_-15dBm,retuned per scenario,tx_floor_x10,1551.3273445140726,0.9979954671329593,0.0021912061527966493,0.0021956073198323685,True,scenario-specific re-optimization
+interior_2km_-15dBm,retuned per scenario,fwm_profile_1GHz,1551.3273445140726,0.9979960702998444,0.0021912210221877644,0.002195620892103733,True,scenario-specific re-optimization
+interior_2km_-15dBm,retuned per scenario,fwm_profile_5GHz,1551.3273445140726,0.9979960702998444,0.0021912210221877644,0.002195620892103733,True,scenario-specific re-optimization
+interior_2km_-15dBm,retuned per scenario,fwm_profile_25GHz,1551.3273445140726,0.9979957858679517,0.0021912140100546567,0.0021956144916473463,True,scenario-specific re-optimization
+interior_2km_-15dBm,retuned per scenario,receiver_power_average,1551.3273445140726,0.9979981559265423,0.0022501784232511267,0.002254691964998732,True,scenario-specific re-optimization
+interior_2km_-15dBm,robust selection over the enumerated scenario set,intersection of Omega_F; max of the worst-case Y_lb,1551.3273445140726,0.992999443879385,0.002180250324828966,nan,True,certifies only the enumerated scenario set under its models; it does not certify a continuous uncertainty region
+interior_3km_-13dBm,fixed nominal wavelength,nominal,1551.3273445140726,0.9972969201360012,0.0009156949845200887,0.0009181768899829908,True,the nominal optimum evaluated under each scenario
+interior_3km_-13dBm,fixed nominal wavelength,raman_scale_0.5,1551.3273445140726,0.9978590367047739,0.0009180747804365691,0.0009200445620739417,True,the nominal optimum evaluated under each scenario
+interior_3km_-13dBm,fixed nominal wavelength,raman_scale_2.0,1551.3273445140726,0.9959898928338873,0.0009108010526094924,0.0009144681679630229,True,the nominal optimum evaluated under each scenario
+interior_3km_-13dBm,fixed nominal wavelength,raman_shape_standin_multigaussian,1551.3273445140726,0.9968425466030219,0.000913909105347977,0.0009168038708443372,True,the nominal optimum evaluated under each scenario
+interior_3km_-13dBm,fixed nominal wavelength,raman_shape_standin_oscillator,1551.3273445140726,0.9973786002999059,0.000916027893553117,0.0009184354800450629,True,the nominal optimum evaluated under each scenario
+interior_3km_-13dBm,fixed nominal wavelength,raman_level_dasilva2014,1551.3273445140726,0.998131946244054,0.00091931851312856,0.0009210390636107109,True,the nominal optimum evaluated under each scenario
+interior_3km_-13dBm,fixed nominal wavelength,attenuation_analytic_model,1551.3273445140726,0.9972961131355218,0.0009181585117460021,0.000920647839345619,True,the nominal optimum evaluated under each scenario
+interior_3km_-13dBm,fixed nominal wavelength,base_error_halved,1551.3273445140726,0.9989665776256157,0.0009172280254412398,0.0009181768899829908,True,the nominal optimum evaluated under each scenario
+interior_3km_-13dBm,fixed nominal wavelength,base_error_doubled,1551.3273445140726,0.9917886468738293,0.0009106374153070513,0.0009181768899829908,True,the nominal optimum evaluated under each scenario
+interior_3km_-13dBm,fixed nominal wavelength,xpm_kappa_0.25,1551.3273445140726,0.997297012761838,0.0009156950695669915,0.0009181768899829908,True,the nominal optimum evaluated under each scenario
+interior_3km_-13dBm,fixed nominal wavelength,leak_isolation_minus_10dB,1551.3273445140726,0.9972925457694014,0.0009156772660142547,0.0009181631507210542,True,the nominal optimum evaluated under each scenario
+interior_3km_-13dBm,fixed nominal wavelength,tx_floor_x10,1551.3273445140726,0.9972956240110427,0.0009156897333743072,0.0009181728178967404,True,the nominal optimum evaluated under each scenario
+interior_3km_-13dBm,fixed nominal wavelength,fwm_profile_1GHz,1551.3273445140726,0.9972969201360012,0.0009156949845200887,0.0009181768899829908,True,the nominal optimum evaluated under each scenario
+interior_3km_-13dBm,fixed nominal wavelength,fwm_profile_5GHz,1551.3273445140726,0.9972969201360012,0.0009156949845200887,0.0009181768899829908,True,the nominal optimum evaluated under each scenario
+interior_3km_-13dBm,fixed nominal wavelength,fwm_profile_25GHz,1551.3273445140726,0.9972956609514891,0.000915689883022113,0.0009181729339406545,True,the nominal optimum evaluated under each scenario
+interior_3km_-13dBm,fixed nominal wavelength,receiver_power_average,1551.3273445140726,0.997302859301513,0.0009402537407179797,0.0009427965957868715,True,the nominal optimum evaluated under each scenario
+interior_3km_-13dBm,retuned per scenario,nominal,1551.3273445140726,0.9972969201360012,0.0009156949845200887,0.0009181768899829908,True,scenario-specific re-optimization
+interior_3km_-13dBm,retuned per scenario,raman_scale_0.5,1551.3273445140726,0.9978590367047739,0.0009180747804365691,0.0009200445620739417,True,scenario-specific re-optimization
+interior_3km_-13dBm,retuned per scenario,raman_scale_2.0,1551.3273445140726,0.9959898928338873,0.0009108010526094924,0.0009144681679630229,True,scenario-specific re-optimization
+interior_3km_-13dBm,retuned per scenario,raman_shape_standin_multigaussian,1551.3273445140726,0.9968425466030219,0.000913909105347977,0.0009168038708443372,True,scenario-specific re-optimization
+interior_3km_-13dBm,retuned per scenario,raman_shape_standin_oscillator,1551.3273445140726,0.9973786002999059,0.000916027893553117,0.0009184354800450629,True,scenario-specific re-optimization
+interior_3km_-13dBm,retuned per scenario,raman_level_dasilva2014,1551.3273445140726,0.998131946244054,0.00091931851312856,0.0009210390636107109,True,scenario-specific re-optimization
+interior_3km_-13dBm,retuned per scenario,attenuation_analytic_model,1537.78363793979,0.9974867014677584,0.0009203248601929582,0.0009226437393488456,True,scenario-specific re-optimization
+interior_3km_-13dBm,retuned per scenario,base_error_halved,1551.3273445140726,0.9989665776256157,0.0009172280254412398,0.0009181768899829908,True,scenario-specific re-optimization
+interior_3km_-13dBm,retuned per scenario,base_error_doubled,1551.3273445140726,0.9917886468738293,0.0009106374153070513,0.0009181768899829908,True,scenario-specific re-optimization
+interior_3km_-13dBm,retuned per scenario,xpm_kappa_0.25,1551.3273445140726,0.997297012761838,0.0009156950695669915,0.0009181768899829908,True,scenario-specific re-optimization
+interior_3km_-13dBm,retuned per scenario,leak_isolation_minus_10dB,1551.3273445140726,0.9972925457694014,0.0009156772660142547,0.0009181631507210542,True,scenario-specific re-optimization
+interior_3km_-13dBm,retuned per scenario,tx_floor_x10,1551.3273445140726,0.9972956240110427,0.0009156897333743072,0.0009181728178967404,True,scenario-specific re-optimization
+interior_3km_-13dBm,retuned per scenario,fwm_profile_1GHz,1551.3273445140726,0.9972969201360012,0.0009156949845200887,0.0009181768899829908,True,scenario-specific re-optimization
+interior_3km_-13dBm,retuned per scenario,fwm_profile_5GHz,1551.3273445140726,0.9972969201360012,0.0009156949845200887,0.0009181768899829908,True,scenario-specific re-optimization
+interior_3km_-13dBm,retuned per scenario,fwm_profile_25GHz,1551.3273445140726,0.9972956609514891,0.000915689883022113,0.0009181729339406545,True,scenario-specific re-optimization
+interior_3km_-13dBm,retuned per scenario,receiver_power_average,1551.3273445140726,0.997302859301513,0.0009402537407179797,0.0009427965957868715,True,scenario-specific re-optimization
+interior_3km_-13dBm,robust selection over the enumerated scenario set,intersection of Omega_F; max of the worst-case Y_lb,1551.3273445140726,0.9917886468738293,0.0009106374153070513,nan,True,certifies only the enumerated scenario set under its models; it does not certify a continuous uncertainty region
+original_comparison_5km_-10dBm,fixed nominal wavelength,nominal,1551.3273445140726,0.9923839113419051,0.00016321454527365355,0.00016446714160546423,True,the nominal optimum evaluated under each scenario
+original_comparison_5km_-10dBm,fixed nominal wavelength,raman_scale_0.5,1551.3273445140726,0.9958741531490923,0.00016220218611028887,0.0001628741800330725,True,the nominal optimum evaluated under each scenario
+original_comparison_5km_-10dBm,fixed nominal wavelength,raman_scale_2.0,1551.3273445140726,0.9827280981339808,0.00016475432438056974,0.0001676499580030405,False,the nominal optimum evaluated under each scenario
+original_comparison_5km_-10dBm,fixed nominal wavelength,raman_shape_standin_multigaussian,1551.3273445140726,0.989215498994541,0.00016385528049827,0.00016564164296335417,False,the nominal optimum evaluated under each scenario
+original_comparison_5km_-10dBm,fixed nominal wavelength,raman_shape_standin_oscillator,1551.3273445140726,0.9929247972365263,0.0001630841867441188,0.00016424626235341192,True,the nominal optimum evaluated under each scenario
+original_comparison_5km_-10dBm,fixed nominal wavelength,raman_level_dasilva2014,1551.3273445140726,0.9973229086904211,0.00016159497885721705,0.00016202874460129115,True,the nominal optimum evaluated under each scenario
+original_comparison_5km_-10dBm,fixed nominal wavelength,attenuation_analytic_model,1551.3273445140726,0.9923741997653027,0.00016394296629785037,0.00016520276961716962,True,the nominal optimum evaluated under each scenario
+original_comparison_5km_-10dBm,fixed nominal wavelength,base_error_halved,1551.3273445140726,0.9953590304103543,0.00016370385460277734,0.00016446714160546423,True,the nominal optimum evaluated under each scenario
+original_comparison_5km_-10dBm,fixed nominal wavelength,base_error_doubled,1551.3273445140726,0.9844914765138375,0.0001619164990771739,0.00016446714160546423,False,the nominal optimum evaluated under each scenario
+original_comparison_5km_-10dBm,fixed nominal wavelength,xpm_kappa_0.25,1551.3273445140726,0.9923848694170937,0.00016321470284554127,0.00016446714160546423,True,the nominal optimum evaluated under each scenario
+original_comparison_5km_-10dBm,fixed nominal wavelength,leak_isolation_minus_10dB,1551.3273445140726,0.9923652563869001,0.00016321891066158796,0.0001644746323101347,True,the nominal optimum evaluated under each scenario
+original_comparison_5km_-10dBm,fixed nominal wavelength,tx_floor_x10,1551.3273445140726,0.992378384591939,0.0001632158394467256,0.0001644693616677666,True,the nominal optimum evaluated under each scenario
+original_comparison_5km_-10dBm,fixed nominal wavelength,fwm_profile_1GHz,1551.3273445140726,0.9923839113419051,0.00016321454527365355,0.00016446714160546423,True,the nominal optimum evaluated under each scenario
+original_comparison_5km_-10dBm,fixed nominal wavelength,fwm_profile_5GHz,1551.3273445140726,0.9923839113419051,0.00016321454527365355,0.00016446714160546423,True,the nominal optimum evaluated under each scenario
+original_comparison_5km_-10dBm,fixed nominal wavelength,fwm_profile_25GHz,1551.3273445140726,0.9923642697276528,0.00016321914131301078,0.00016447502826538192,True,the nominal optimum evaluated under each scenario
+original_comparison_5km_-10dBm,fixed nominal wavelength,receiver_power_average,1551.3273445140726,0.9924185532505694,0.00016753513779145545,0.00016881499972235564,True,the nominal optimum evaluated under each scenario
+original_comparison_5km_-10dBm,retuned per scenario,nominal,1551.3273445140726,0.9923839113419051,0.00016321454527365355,0.00016446714160546423,True,scenario-specific re-optimization
+original_comparison_5km_-10dBm,retuned per scenario,raman_scale_0.5,1551.3273445140726,0.9958741531490923,0.00016220218611028887,0.0001628741800330725,True,scenario-specific re-optimization
+original_comparison_5km_-10dBm,retuned per scenario,raman_scale_2.0,nan,nan,nan,nan,False,Omega_F empty under this scenario
+original_comparison_5km_-10dBm,retuned per scenario,raman_shape_standin_multigaussian,1537.78363793979,0.9916828538688564,0.0001463885458021424,0.00014761629207466495,True,scenario-specific re-optimization
+original_comparison_5km_-10dBm,retuned per scenario,raman_shape_standin_oscillator,1551.3273445140726,0.9929247972365263,0.0001630841867441188,0.00016424626235341192,True,scenario-specific re-optimization
+original_comparison_5km_-10dBm,retuned per scenario,raman_level_dasilva2014,1551.3273445140726,0.9973229086904211,0.00016159497885721705,0.00016202874460129115,True,scenario-specific re-optimization
+original_comparison_5km_-10dBm,retuned per scenario,attenuation_analytic_model,1537.3918905853354,0.9931350333025587,0.0001640905040868751,0.00016522476660722621,True,scenario-specific re-optimization
+original_comparison_5km_-10dBm,retuned per scenario,base_error_halved,1551.3273445140726,0.9953590304103543,0.00016370385460277734,0.00016446714160546423,True,scenario-specific re-optimization
+original_comparison_5km_-10dBm,retuned per scenario,base_error_doubled,nan,nan,nan,nan,False,Omega_F empty under this scenario
+original_comparison_5km_-10dBm,retuned per scenario,xpm_kappa_0.25,1551.3273445140726,0.9923848694170937,0.00016321470284554127,0.00016446714160546423,True,scenario-specific re-optimization
+original_comparison_5km_-10dBm,retuned per scenario,leak_isolation_minus_10dB,1551.3273445140726,0.9923652563869001,0.00016321891066158796,0.0001644746323101347,True,scenario-specific re-optimization
+original_comparison_5km_-10dBm,retuned per scenario,tx_floor_x10,1551.3273445140726,0.992378384591939,0.0001632158394467256,0.0001644693616677666,True,scenario-specific re-optimization
+original_comparison_5km_-10dBm,retuned per scenario,fwm_profile_1GHz,1551.3273445140726,0.9923839113419051,0.00016321454527365355,0.00016446714160546423,True,scenario-specific re-optimization
+original_comparison_5km_-10dBm,retuned per scenario,fwm_profile_5GHz,1551.3273445140726,0.9923839113419051,0.00016321454527365355,0.00016446714160546423,True,scenario-specific re-optimization
+original_comparison_5km_-10dBm,retuned per scenario,fwm_profile_25GHz,1551.3273445140726,0.9923642697276528,0.00016321914131301078,0.00016447502826538192,True,scenario-specific re-optimization
+original_comparison_5km_-10dBm,retuned per scenario,receiver_power_average,1551.3273445140726,0.9924185532505694,0.00016753513779145545,0.00016881499972235564,True,scenario-specific re-optimization
+original_comparison_5km_-10dBm,robust selection over the enumerated scenario set,intersection of Omega_F; max of the worst-case Y_lb,nan,nan,nan,nan,False,certifies only the enumerated scenario set under its models; it does not certify a continuous uncertainty region
+legacy_comparison_10km_-5dBm,fixed nominal wavelength,nominal,1551.715367396071,0.76578391581643,3.4257816665313896e-06,4.473561791747793e-06,False,the nominal optimum evaluated under each scenario
+legacy_comparison_10km_-5dBm,fixed nominal wavelength,raman_scale_0.5,1551.715367396071,0.8727434160907537,2.978603272236379e-06,3.4129197852655517e-06,False,the nominal optimum evaluated under each scenario
+legacy_comparison_10km_-5dBm,fixed nominal wavelength,raman_scale_2.0,1551.715367396071,0.5692937178771544,4.1276899024516256e-06,7.250545321039926e-06,False,the nominal optimum evaluated under each scenario
+legacy_comparison_10km_-5dBm,fixed nominal wavelength,raman_shape_standin_multigaussian,1551.715367396071,0.6856074025614598,3.7231987197770815e-06,5.430511260332145e-06,False,the nominal optimum evaluated under each scenario
+legacy_comparison_10km_-5dBm,fixed nominal wavelength,raman_shape_standin_oscillator,1551.715367396071,0.7806508173161253,3.3679961288797103e-06,4.314343947603705e-06,False,the nominal optimum evaluated under each scenario
+legacy_comparison_10km_-5dBm,fixed nominal wavelength,raman_level_dasilva2014,1551.715367396071,0.9253680688311103,2.7113010690180432e-06,2.9299704197086196e-06,False,the nominal optimum evaluated under each scenario
+legacy_comparison_10km_-5dBm,fixed nominal wavelength,attenuation_analytic_model,1551.715367396071,0.765293195385961,3.4641619822479983e-06,4.526581450264842e-06,False,the nominal optimum evaluated under each scenario
+legacy_comparison_10km_-5dBm,fixed nominal wavelength,base_error_halved,1551.715367396071,0.7764638977048932,3.4735592254441767e-06,4.473561791747793e-06,False,the nominal optimum evaluated under each scenario
+legacy_comparison_10km_-5dBm,fixed nominal wavelength,base_error_doubled,1551.715367396071,0.7443042771240489,3.3296911755766057e-06,4.473561791747793e-06,False,the nominal optimum evaluated under each scenario
+legacy_comparison_10km_-5dBm,fixed nominal wavelength,xpm_kappa_0.25,1551.715367396071,0.7658308266155387,3.4259915248899026e-06,4.473561791747793e-06,False,the nominal optimum evaluated under each scenario
+legacy_comparison_10km_-5dBm,fixed nominal wavelength,leak_isolation_minus_10dB,1551.715367396071,0.7656978292321177,3.426113359061231e-06,4.474497939346542e-06,False,the nominal optimum evaluated under each scenario
+legacy_comparison_10km_-5dBm,fixed nominal wavelength,tx_floor_x10,1551.715367396071,0.7656991014555754,3.4261084574051424e-06,4.474484103340586e-06,False,the nominal optimum evaluated under each scenario
+legacy_comparison_10km_-5dBm,fixed nominal wavelength,fwm_profile_1GHz,1551.715367396071,0.7676705774502874,3.4185042076487447e-06,4.453087441494551e-06,False,the nominal optimum evaluated under each scenario
+legacy_comparison_10km_-5dBm,fixed nominal wavelength,fwm_profile_5GHz,1551.715367396071,0.7912038424581482,3.3263263375740134e-06,4.204133194348034e-06,False,the nominal optimum evaluated under each scenario
+legacy_comparison_10km_-5dBm,fixed nominal wavelength,fwm_profile_25GHz,1551.715367396071,0.8265046601831825,3.182235393493976e-06,3.85023285021609e-06,False,the nominal optimum evaluated under each scenario
+legacy_comparison_10km_-5dBm,fixed nominal wavelength,receiver_power_average,1551.715367396071,0.7668337087436615,3.506508770161682e-06,4.572710784853935e-06,False,the nominal optimum evaluated under each scenario
+legacy_comparison_10km_-5dBm,retuned per scenario,nominal,nan,nan,nan,nan,False,Omega_F empty under this scenario
+legacy_comparison_10km_-5dBm,retuned per scenario,raman_scale_0.5,nan,nan,nan,nan,False,Omega_F empty under this scenario
+legacy_comparison_10km_-5dBm,retuned per scenario,raman_scale_2.0,nan,nan,nan,nan,False,Omega_F empty under this scenario
+legacy_comparison_10km_-5dBm,retuned per scenario,raman_shape_standin_multigaussian,nan,nan,nan,nan,False,Omega_F empty under this scenario
+legacy_comparison_10km_-5dBm,retuned per scenario,raman_shape_standin_oscillator,nan,nan,nan,nan,False,Omega_F empty under this scenario
+legacy_comparison_10km_-5dBm,retuned per scenario,raman_level_dasilva2014,nan,nan,nan,nan,False,Omega_F empty under this scenario
+legacy_comparison_10km_-5dBm,retuned per scenario,attenuation_analytic_model,nan,nan,nan,nan,False,Omega_F empty under this scenario
+legacy_comparison_10km_-5dBm,retuned per scenario,base_error_halved,nan,nan,nan,nan,False,Omega_F empty under this scenario
+legacy_comparison_10km_-5dBm,retuned per scenario,base_error_doubled,nan,nan,nan,nan,False,Omega_F empty under this scenario
+legacy_comparison_10km_-5dBm,retuned per scenario,xpm_kappa_0.25,nan,nan,nan,nan,False,Omega_F empty under this scenario
+legacy_comparison_10km_-5dBm,retuned per scenario,leak_isolation_minus_10dB,nan,nan,nan,nan,False,Omega_F empty under this scenario
+legacy_comparison_10km_-5dBm,retuned per scenario,tx_floor_x10,nan,nan,nan,nan,False,Omega_F empty under this scenario
+legacy_comparison_10km_-5dBm,retuned per scenario,fwm_profile_1GHz,nan,nan,nan,nan,False,Omega_F empty under this scenario
+legacy_comparison_10km_-5dBm,retuned per scenario,fwm_profile_5GHz,nan,nan,nan,nan,False,Omega_F empty under this scenario
+legacy_comparison_10km_-5dBm,retuned per scenario,fwm_profile_25GHz,nan,nan,nan,nan,False,Omega_F empty under this scenario
+legacy_comparison_10km_-5dBm,retuned per scenario,receiver_power_average,nan,nan,nan,nan,False,Omega_F empty under this scenario
+legacy_comparison_10km_-5dBm,robust selection over the enumerated scenario set,intersection of Omega_F; max of the worst-case Y_lb,nan,nan,nan,nan,False,certifies only the enumerated scenario set under its models; it does not certify a continuous uncertainty region

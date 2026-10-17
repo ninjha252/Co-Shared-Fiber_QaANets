@@ -1,0 +1,243 @@
+{
+  "run_id": "illustrative_baseline",
+  "stage": "FWM spectral-profile diagnostic",
+  "started_utc": "2026-10-17T15:49:19Z",
+  "config": {
+    "scenario_id": "illustrative_baseline",
+    "calibration_status": "uncalibrated_illustrative",
+    "thermal_model_status": "aggregate_thermal_approximation_assumed",
+    "deployment": {
+      "classical_frequencies_ghz": [
+        191600,
+        191700,
+        191800,
+        191900,
+        192700,
+        192800,
+        192900,
+        193000,
+        193100,
+        193300,
+        193400,
+        193500,
+        193600,
+        193700,
+        193800,
+        193900,
+        194000,
+        194100,
+        194200,
+        194300,
+        194400,
+        194500,
+        194600,
+        194700,
+        194800,
+        194900,
+        195100,
+        195200,
+        195300,
+        195400,
+        195500,
+        195600,
+        195700,
+        195800,
+        195900
+      ],
+      "classical_launch_dbm_per_channel": -5.0,
+      "classical_direction": "A_to_B",
+      "quantum_directions": [
+        "A_to_B",
+        "B_to_A",
+        "A_to_B"
+      ],
+      "classical_tx_terminal": "A",
+      "quantum_rx_terminal": [
+        "B",
+        "A",
+        "B"
+      ]
+    },
+    "link": {
+      "length_km_per_traversal": 10.0,
+      "eta_insertion_per_pass": 0.82,
+      "e0_per_pass": 0.002,
+      "mode_fwhm_ghz": 10.0,
+      "filter_fwhm_ghz": 25.0,
+      "filter_order": 4,
+      "filter_isolation_db": 110.0,
+      "receiver_mode_convention": "fixed_mode_overlap",
+      "modeled_domain_nm": [
+        1500.0,
+        1600.0
+      ]
+    },
+    "optics": {
+      "attenuation_source": "tabulated_smf28",
+      "attenuation_csv": "data/raw/attenuation_smf28.csv",
+      "attenuation_valid_nm": [
+        1290.0,
+        1700.0
+      ],
+      "attenuation_anchor_nm": 1550.0,
+      "attenuation_anchor_db_km": 0.18,
+      "dispersion_D_ps_nm_km": 17.0,
+      "dispersion_S_ps_nm2_km": 0.058,
+      "beta2_s2_m": -2.17e-26,
+      "beta3_s3_m": 1.2e-40,
+      "n_group": 1.468,
+      "gamma_per_w_km": 1.3,
+      "fwm_convention": "conventional_gamma",
+      "fwm_profile_rms_ghz": 0.0,
+      "raman_model": "hollenbeck_cantrell_2002",
+      "raman_scale": 1.0,
+      "temperature_k": 300.0,
+      "mod_rms_ghz": 25.0,
+      "tx_broadband_floor_per_hz": 2.5e-14,
+      "leak_isolation_remote_db": 110.0,
+      "leak_isolation_local_db": 90.0,
+      "xpm_kappa": 1.0,
+      "xpm_rel_fluct": 1.0,
+      "xpm_band_ghz": 25.0
+    },
+    "search": {
+      "hardware_domain_nm": [
+        1530.0,
+        1565.0
+      ],
+      "guard_band_ghz": 50.0,
+      "tuning_margin_ghz": 1.0,
+      "reserved_window_nm": [
+        1556.0,
+        1561.5
+      ],
+      "restrict_quantum_to_reserved_window": false,
+      "grid_step_ghz": 2.0,
+      "refine_step_ghz": 1.0
+    },
+    "classical_link": {
+      "receivers": [
+        {
+          "id": "rx_1g25_measured",
+          "label": "1.25 Gb/s receiver (measured)",
+          "data_rate_gbps": 1.25,
+          "rx_sensitivity_dbm": -36.8,
+          "source": "Patel et al., Phys. Rev. X 2, 041010 (2012), measured sensitivity"
+        },
+        {
+          "id": "rx_10g_apd",
+          "label": "10.7 Gb/s receiver (assumed benchmark)",
+          "data_rate_gbps": 10.7,
+          "rx_sensitivity_dbm": -24.0,
+          "source": "Assumed -24 dBm receiver sensitivity benchmark; not a measured or datasheet value",
+          "provenance_category": "illustrative_assumption"
+        }
+      ],
+      "mux_insertion_db": 3.0,
+      "demux_insertion_db": 3.0,
+      "system_margin_db": 3.0,
+      "evaluation_lengths_km": [
+        5.0,
+        10.0,
+        15.0,
+        20.0
+      ]
+    },
+    "base_error_sweep": {
+      "anchors": [
+        {
+          "e0": 0.0007,
+          "source": "Agnesi et al., Optica 7, 284 (2020): self-compensating encoder, key basis"
+        },
+        {
+          "e0": 0.002,
+          "source": "nominal value used in the main results"
+        },
+        {
+          "e0": 0.004,
+          "source": "Bolanos et al., Optica Quantum 4, 389 (2026): complete GHz-rate system"
+        },
+        {
+          "e0": 0.007,
+          "source": "Xavier et al., New J. Phys. 11, 045015 (2009): 16 km fibre, static"
+        },
+        {
+          "e0": 0.018,
+          "source": "Xavier et al. (2009): 16 km fibre with active compensation running"
+        }
+      ]
+    },
+    "map": {
+      "length_km_min": 1.0,
+      "length_km_max": 30.0,
+      "length_km_step": 1.0,
+      "launch_dbm_min": -30.0,
+      "launch_dbm_max": 0.0,
+      "launch_dbm_step": 1.0
+    },
+    "targets": {
+      "F_min": 0.99,
+      "Y_min": 1e-06,
+      "epsilon": 0.05,
+      "F_min_sensitivity": [
+        0.95,
+        0.99,
+        0.999
+      ],
+      "Y_min_sensitivity": [
+        1e-08,
+        1e-06,
+        0.0001
+      ],
+      "fixed_reference_nm": 1550.0
+    },
+    "numerics": {
+      "gauss_hermite_order": 48,
+      "gauss_hermite_check_order": 96,
+      "mode_line_window_sigma": 12.0
+    },
+    "_path": "/workspace/scratch/ea419e3e9e42/submission-release/project/configs/illustrative_baseline.yaml"
+  },
+  "software": {
+    "python": "3.12.14",
+    "numpy": "2.5.3",
+    "scipy": "1.18.1",
+    "matplotlib": "3.11.1",
+    "pandas": "3.0.5",
+    "pyyaml": "6.0.3",
+    "platform": "Linux-6.18.55-x86_64-with-glibc2.39"
+  },
+  "source_sha256": {
+    "attenuation.py": "00713e675170ae7aa8859763e3330912b4224a0189f847c3a22a601032cec45a",
+    "config.py": "68d8203f2c169a245012629911496b3c2be599d2ee243c641cc8dff8d59faebc",
+    "deployment.py": "37a0bade7aaf6db55a00768d21253cfff663f411c0a7dddb171e30e8f4b7816c",
+    "fwm.py": "76598ecad9a4a3c64f34cfb84287c7f171cce64d0914bdb2851ad083365059a8",
+    "leakage.py": "f87c3444bf5ea72273093cde20d8d3ab30253be56b8eb2fea18c7e069cccd9d8",
+    "legacy_compare.py": "0f4672f97eb1ead7aa9a8ae0e32755ec3a358bd94090c432407ff962e1a6ff30",
+    "link_budget.py": "9abd310d766b8cd7466ce9c2178608edc17e7fbdf2ffbe1dc185c5a9ba3634bc",
+    "local_protocol.py": "c13b2d73320a9adec61df5f767cf3a9835e7ad72f7412a76b91019a9acbbad2c",
+    "mode_reference.py": "8badb4b86f6c37f05931a6fc69a03ee31515cae31bf4ef45a8a8030025e46aa6",
+    "modes.py": "2f49db163a85145fd11dfbd9bee9d252195d2cd4661608f834436fe4bdae675d",
+    "optical_channel.py": "dca86305cd6feb63864c523b20dd564ba35d8d2fd055aed64d941c7988b1e7fd",
+    "optical_dilation.py": "967a82617f27858613e5388de1699e406be6ac6938d2b6843c936852d1672a44",
+    "optical_link.py": "f6ed3afbdcb8bc45467d3504b4a3b8ec0d229eea4d8447ddb532f7432c609fcd",
+    "optimization.py": "77d076ca4d54bbe4175bc476c50530e20d2d644e62223ddeb472322e72b781b4",
+    "protocol.py": "7bc6488cbb2358fd2a72c54c3bf93109eb9a04c355079b53019936ff5c4ed197",
+    "raman.py": "e7fa8b4b798c59c3a732db9f292e0d5064d9b6da776313699eceb65dd0a3a4c0",
+    "reliability.py": "d808d5c60f4467167a7179d4e5a206d41882944c8dc64e8d4214f5ba1e99aa9d",
+    "runio.py": "4fd0803469ea9df0d28fd9de7b34c35169c3d8613949c61011b90cd7c69ef0f6",
+    "steane.py": "379cb574e8d7428ece4d9b62a463b283a317aa871cef1ed18af28fc4b9163575",
+    "units.py": "ec70fc54ff8a8126d7088644024c702160f804d30e0ea37fe547ecfbb73588fa",
+    "xpm.py": "7dd1afad0b09b7b3a101c2a5131c5caf0b04794fe992f5fa3c2114b2e91bd0c1"
+  },
+  "inputs": [],
+  "outputs": [
+    "results/illustrative_baseline/fwm_profile_width.csv"
+  ],
+  "tolerances": {},
+  "notes": [
+    "Prescribed profile widths; the narrow-line result is the width -> 0 limit of the same expression."
+  ],
+  "wall_time_s": 400.249,
+  "finished_utc": "2026-10-17T15:55:59Z"
+}
