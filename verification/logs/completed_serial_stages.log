@@ -1,0 +1,131 @@
+
+=== Stage A+C  decoder validation ===========================
+
+Stage A+C complete: 27 asserted checks, 0 failures, 0 report-only diagnostics, 272 sweep rows over 34 noise points x 2 paths
+  [pass] stabilizer commutation                                         err=0.000e+00
+  [pass] stabilizers fix both codewords                                 err=0.000e+00
+  [pass] isometry V^dag V = I                                           err=1.110e-16
+  [pass] sum_s Pi_s = I_128                                             err=0.000e+00
+  [pass] recovery+decoding trace preserving                             err=1.110e-16
+  [pass] residual syndrome vanishes after CSS correction                err=0.000e+00
+  [pass] logical classification: span vs commutation                    err=0.000e+00
+  [pass] synthetic reference point (all 16 tabulated quantities)        err=2.957e-13
+  [pass] Pauli enumeration vs 8-qubit density matrix                    err=4.441e-15
+  [pass] private operations commute (identity)                          err=0.000e+00
+  [pass] no faults -> unit logical fidelity (identity)                  err=9.992e-16
+  [pass] private operations commute (commuting_rz)                      err=5.551e-17
+  [pass] no faults -> unit logical fidelity (commuting_rz)              err=9.992e-16
+  [pass] private operations commute (fixed_nonclifford_ry)              err=0.000e+00
+  [pass] no faults -> unit logical fidelity (fixed_nonclifford_ry)      err=2.109e-15
+  [pass] 21 single-location Paulis x 3 traversal slots x 3 key cases    err=2.331e-15
+  [pass] arbitrary single-location rotations (40 random)                err=2.887e-15
+  [pass] faults on all three traversals of ONE location (30 random)     err=2.665e-15
+  [pass] fully depolarizing physical channel                            err=8.327e-17
+  [pass] recovered state trace                                          err=1.110e-15
+  [pass] recovered state minimum eigenvalue >= 0                        err=0.000e+00
+  [pass] recovered state hermiticity                                    err=0.000e+00
+  [pass] private key sets are commuting by construction                 err=1.110e-16
+  [pass] Fe_exact >= C_bound over the whole sweep                       err=0.000e+00
+  [pass] Y_lb <= Y_exact <= Y_ub over the whole sweep                   err=0.000e+00
+  [pass] Pauli enumeration vs density matrix across the sweep           err=9.925e-14
+  [pass] random key sets satisfy the certificate                        err=0.000e+00
+
+=== Stage B    optical validation ===========================
+
+Stage B complete: 64 asserted checks (0 failures), 15 report-only diagnostics, 68 dilation sweep points, 20 convergence points
+  [pass] dBm/W round trip                                                 err=0.000e+00
+  [pass] frequency/wavelength round trip                                  err=2.274e-13
+  [pass] dB/km to m^-1 round trip                                         err=0.000e+00
+  [pass] 0.2 dB/km over 10 km equals 2 dB loss                            err=1.110e-16
+  [pass] spectral Jacobian |dlambda_nm/df|                                err=3.231e-27
+  [pass] accepted-mode normalization (order 48)                           err=0.000e+00
+  [pass] accepted-mode normalization (order 96)                           err=0.000e+00
+  [pass] transform-limited time-bandwidth product                         err=0.000e+00
+  [pass] per-polarization factor on a flat spectrum                       err=1.881e-11
+  [pass] per-polarization input omits the factor 1/2                      err=0.000e+00
+  [pass] filter peak response                                             err=0.000e+00
+  [pass] filter half power at FWHM/2                                      err=5.000e-12
+  [repo] equivalent noise bandwidth is not the FWHM                       err=3.527e+08
+  [repo] gate photon mean is not the mode occupancy                       err=1.561e-01
+  [pass] Raman longitudinal factor, co-propagating                        err=9.095e-13
+  [pass] Raman longitudinal factor, counter-propagating                   err=1.093e-08
+  [pass] Raman equal-loss limit -> L exp(-aL)                             err=9.095e-13
+  [pass] zero classical launch power gives zero Raman                     err=0.000e+00
+  [pass] Raman normalization reproduces the reported measurement point    err=2.939e-39
+  [pass] Hollenbeck-Cantrell gain maximum lies at the silica Raman peak   err=1.712e-01
+  [repo] Raman model versus the near-carrier measurement of da Silva et al. (2014) err=7.653e-01
+  [pass] Stokes/anti-Stokes detailed balance at 300 K                     err=0.000e+00
+  [repo] Raman recalibration versus the legacy normalization              err=2.270e-23
+  [repo] Raman recalibration versus the legacy normalization              err=2.791e-23
+  [repo] Raman recalibration versus the legacy normalization              err=3.068e-23
+  [repo] Raman recalibration versus the legacy normalization              err=2.099e-23
+  [repo] Raman recalibration versus the legacy normalization              err=4.058e-23
+  [repo] Raman lineshape model sensitivity                                err=5.223e-01
+  [pass] flat transfer: modal overlap equals the power average            err=1.110e-16
+  [repo] receiver convention: modal overlap versus power average          err=1.256e-03
+  [pass] profiled FWM line reduces exactly to the delta line at zero width err=0.000e+00
+  [pass] profiled line versus the analytic Gaussian convolution           err=6.646e-14
+  [pass] small-triplet enumeration count and degeneracy convention        err=0.000e+00
+  [pass] FWM lossy amplitude: closed form vs resolved quadrature (3 channels) err=3.659e-05
+  [pass] FWM lossy amplitude: closed form vs resolved quadrature (35 channels) err=3.657e-05
+  [pass] FWM degenerate benchmark: lossless, phase matched                err=2.443e-19
+  [pass] only one unordered triplet reaches the nondegenerate benchmark line err=0.000e+00
+  [pass] FWM nondegenerate benchmark: lossless, phase matched             err=1.026e-18
+  [pass] FWM scales as L^2 in the short phase-matched limit               err=8.674e-11
+  [pass] FWM scales as gamma^2                                            err=0.000e+00
+  [pass] FWM scales as the cube of a common launch-power scaling          err=1.776e-15
+  [pass] fault injection: the earlier d=3,6 with conventional gamma is rejected err=6.505e-11
+  [pass] generated FWM frequencies are fixed by the classical grid        err=0.000e+00
+  [repo] coherent versus incoherent product summation                     err=7.891e-01
+  [repo] FWM directional reception                                        err=0.000e+00
+  [pass] local leakage path does not traverse the span                    err=0.000e+00
+  [pass] zero span length makes the two leakage paths identical           err=0.000e+00
+  [pass] path isolation is applied exactly once                           err=0.000e+00
+  [pass] modeled leakage spectrum is finite outside the declared domain   err=0.000e+00
+  [pass] zero differential coupling gives zero phase variance             err=0.000e+00
+  [pass] zero residual power fluctuation gives zero phase variance        err=0.000e+00
+  [pass] XPM closed form vs frequency-domain PSD quadrature (co-propagating) err=8.694e-17
+  [pass] XPM closed form vs position-domain covariance double integral (co) err=3.501e-11
+  [repo] XPM counter-propagating: both reference routes are unresolvable  err=1.465e+08
+  [pass] XPM counter-propagating closed form vs analytic large-walk-off limit err=1.430e-17
+  [repo] legacy capped-walk-off approximation (labelled, not used)        err=1.921e-05
+  [pass] Gaussian phase coherence equals exp(-sigma^2/2)                  err=4.406e-04
+  [pass] coherence-to-z conversion round trip                             err=0.000e+00
+  [pass] unsupported extrapolation is rejected                            err=0.000e+00
+  [repo] attenuation provenance inside the quantum band                   err=4.000e+00
+  [pass] pure loss gives s = T                                            err=0.000e+00
+  [pass] pure loss gives r = 0                                            err=0.000e+00
+  [pass] identity channel                                                 err=0.000e+00
+  [pass] complete signal loss with background gives r = 1                 err=0.000e+00
+  [pass] s can exceed T through background replacement                    err=0.000e+00
+  [pass] D = 0 leaves the conditional quantities undefined                err=0.000e+00
+  [pass] accepted Choi: independent thermal dilation vs closed form       err=5.673e-16
+  [pass] normalized-channel Choi error                                    err=1.110e-15
+  [pass] acceptance is independent of the input state                     err=0.000e+00
+  [pass] normalized Choi is trace preserving where s > 0                  err=5.551e-17
+  [pass] accepted Choi positivity                                         err=2.776e-17
+  [pass] trace nonincrease                                                err=0.000e+00
+  [pass] conditional mixing r from the dilation vs the closed form        err=8.327e-16
+  [pass] three explicit traversals versus one effective (T,nu) channel    err=1.666e-16
+  [pass] three explicit traversals versus one effective (T,nu) channel    err=2.283e-16
+  [pass] three explicit traversals versus one effective (T,nu) channel    err=1.378e-16
+  [pass] three explicit traversals versus one effective (T,nu) channel    err=2.223e-16
+  [pass] earlier background is attenuated by later traversals             err=0.000e+00
+  [pass] terminal background is not attenuated                            err=0.000e+00
+
+=== tests ===================================================
+...................................                                      [100%]
+35 passed in 17.64s
+
+=== Stage D    operating point 2 km, -15 dBm/ch, margin 1 GHz 
+[op_2km_m15dBm] scanning ...
+[op_2km_m15dBm] convergence: grid refinement at fixed quadrature ...
+[op_2km_m15dBm] convergence: quadrature refinement at fixed grid ...
+
+[op_2km_m15dBm] 2298 grid points, 454 allowed
+  max C_bound over Omega_q = 0.998058 at 1537.011 nm
+  F_min = 0.99: Omega_F has 454 candidates
+  lambda* = 1551.3273 nm, Y_lb* = 2.1912e-03, C = 0.997996
+  max Y_ub over Omega_q = 2.1956e-03 (Y_min = 1e-06)
+  wall time 115.6 s
+

@@ -1,0 +1,129 @@
+{
+  "scan_exports": {
+    "legacy_reserved_window": {
+      "rows": 2298,
+      "expected_rows": 2298,
+      "allowed": 332,
+      "physical_changes_beyond_tolerance": {},
+      "classification_changes": 0
+    },
+    "op_10km_m5dBm": {
+      "rows": 2298,
+      "expected_rows": 2298,
+      "allowed": 454,
+      "physical_changes_beyond_tolerance": {},
+      "classification_changes": 0
+    },
+    "op_10km_m5dBm_margin0": {
+      "rows": 2267,
+      "expected_rows": 2267,
+      "allowed": 488,
+      "physical_changes_beyond_tolerance": {},
+      "classification_changes": 0
+    },
+    "op_2km_m15dBm": {
+      "rows": 2298,
+      "expected_rows": 2298,
+      "allowed": 454,
+      "physical_changes_beyond_tolerance": {},
+      "classification_changes": 0
+    },
+    "op_2km_m15dBm_margin0": {
+      "rows": 2267,
+      "expected_rows": 2267,
+      "allowed": 488,
+      "physical_changes_beyond_tolerance": {},
+      "classification_changes": 0
+    },
+    "op_3km_m13dBm": {
+      "rows": 2298,
+      "expected_rows": 2298,
+      "allowed": 454,
+      "physical_changes_beyond_tolerance": {},
+      "classification_changes": 0
+    },
+    "op_3km_m13dBm_margin0": {
+      "rows": 2267,
+      "expected_rows": 2267,
+      "allowed": 488,
+      "physical_changes_beyond_tolerance": {},
+      "classification_changes": 0
+    },
+    "op_5km_m10dBm": {
+      "rows": 2298,
+      "expected_rows": 2298,
+      "allowed": 454,
+      "physical_changes_beyond_tolerance": {},
+      "classification_changes": 0
+    },
+    "op_5km_m10dBm_margin0": {
+      "rows": 2267,
+      "expected_rows": 2267,
+      "allowed": 488,
+      "physical_changes_beyond_tolerance": {},
+      "classification_changes": 0
+    },
+    "op_6km_m10dBm": {
+      "rows": 2298,
+      "expected_rows": 2298,
+      "allowed": 454
+    }
+  },
+  "map": {
+    "rows": 930,
+    "quality_nonempty": 442,
+    "both_targets": 226,
+    "W_interval_rows_changed": 219,
+    "N_interval_rows_changed": 233,
+    "other_numeric_changes": {}
+  },
+  "scenario_sensitivity.csv": {
+    "rows": 64,
+    "classification_changes": 0
+  },
+  "robustness_summary.csv": {
+    "rows": 132,
+    "classification_changes": 0
+  },
+  "fwm_profile": {
+    "rows": 16,
+    "candidate_count_changes": 0,
+    "peak_change_percent_at_25GHz": [
+      {
+        "length_km": 2.0,
+        "launch_dbm": -15.0,
+        "fwm_profile_rms_ghz": 25.0,
+        "peak_change_percent": -8.86359065200092
+      },
+      {
+        "length_km": 3.0,
+        "launch_dbm": -13.0,
+        "fwm_profile_rms_ghz": 25.0,
+        "peak_change_percent": -8.8634720011875
+      },
+      {
+        "length_km": 5.0,
+        "launch_dbm": -10.0,
+        "fwm_profile_rms_ghz": 25.0,
+        "peak_change_percent": -8.864873617235002
+      },
+      {
+        "length_km": 10.0,
+        "launch_dbm": -5.0,
+        "fwm_profile_rms_ghz": 25.0,
+        "peak_change_percent": -8.862233438896938
+      }
+    ]
+  },
+  "boundary": {
+    "rows": 31,
+    "max_residual": 9.399834182133304e-07,
+    "unresolved": 0
+  },
+  "validation": {
+    "asserted_checks": 91,
+    "failures": 0,
+    "report_only_diagnostics": 15,
+    "pytest_passed": 35
+  }
+}

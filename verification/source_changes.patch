@@ -1,0 +1,488 @@
+--- a/README.md
++++ b/README.md
+@@ -6,9 +6,10 @@
+ [[7,1,3]] Steane block, and the quantum-wavelength selection that follows from
+ them under a fixed classical allocation.
+ 
+-The repository reproduces every figure and table in the paper from the stored
+-configurations, and it re-derives the stored results from scratch with one
+-command.
++The repository generates the numerical figures and full source tables that
++support the paper from the stored configurations. The manuscript presents
++selected rows and reformatted tables. All numerical stages can be rerun from
++scratch with one command.
+ 
+ ## Two separate questions
+ 
+@@ -25,7 +26,8 @@
+ published Hollenbeck–Cantrell fit to the measured gain of fused silica,
+ normalized at the measured coefficient of Qi et al. (2010); the attenuation is
+ tabulated from manufacturer maxima; the classical receivers are a measured
+-sensitivity (Patel et al. 2012) and a datasheet value; the base error is swept
++sensitivity from the literature (Patel et al. 2012) and an assumed -24 dBm
++benchmark at 10.7 Gb/s; the base error is swept
+ over published polarization-QKD values. Every input is recorded per row with
+ its source in `results/*/provenance.csv` and in Main Table 1, and every
+ wavelength reported here is conditional on those inputs.
+@@ -38,8 +40,8 @@
+ ```
+ 
+ Tested with Python 3.12.14, numpy 2.5.3, scipy 1.18.1, pandas 3.0.5,
+-matplotlib 3.11.1, PyYAML 6.0.3 and pytest on macOS (arm64). No compiled
+-extensions and no network access are required.
++matplotlib 3.11.1, PyYAML 6.0.3 and pytest 8.4.2 on Linux (x86_64).
++Dependency installation requires the packages; the simulations run offline.
+ 
+ ## Reproducing the study
+ 
+@@ -55,7 +57,7 @@
+ | Logical validation | `validate_decoder.py` | encoder, recovery and bound checks; the noise sweep |
+ | Optical validation | `validate_optics.py` | impairment-model checks; the independent optical construction |
+ | Unit tests | `pytest` | fast regression tests, including fault injection |
+-| Operating points | `run_baseline.py` × 8 | the four predeclared points with a 1 GHz tuning margin, and the same four with none |
++| Operating points | `run_baseline.py` × 9 | the four diagnostic anchors with a 1 GHz tuning margin and with none, plus the 6 km, -10 dBm/ch selector comparison at 1 GHz margin |
+ | Reserved window | `run_baseline.py` | the restricted-search comparison |
+ | Operating map | `run_operating_map.py` | 30 lengths × 31 launch powers, with the largest admissible base error at each point |
+ | Guard and margin | `run_guard_margin.py` | guards 49/50/51 GHz × margins 0/1/2/2.5/5 GHz |
+@@ -65,8 +67,9 @@
+ | Sensitivity | `run_sensitivity.py` | ablations, scenarios, robust selection |
+ | Outputs | `make_figures.py`, `make_tables.py`, `make_reports.py` | figures, tables and reports, from stored CSVs only |
+ 
+-Figures and tables never recompute physics: they read the CSVs written by the
+-run scripts, so a plot cannot disagree with the data behind it.
++Figures and tables read the CSVs written by the run scripts. Regenerate them
++after changing the inputs or numerical implementation so they reflect the
++corresponding run.
+ 
+ ### Running one operating point
+ 
+@@ -142,13 +145,13 @@
+ - `CHANGES.md` at the repository root records each correction made to the
+   earlier implementation, its mathematical basis, and what it changed.
+ 
+-Per-candidate scans (`wavelength_scan.csv`) are stored gzip-compressed to keep
+-the repository small; the readers accept either form, and rerunning a stage
+-writes the uncompressed file.
++Per-candidate scans are stored as `wavelength_scan.csv`. The readers also accept
++gzip-compressed copies from earlier releases; rerunning a stage writes the
++uncompressed file.
+ 
+-Every run script writes a manifest containing the resolved configuration, input
+-file SHA-256 hashes, seeds, package versions, source file hashes, tolerances,
+-wall time and output paths. `results/run_metadata.json` aggregates them.
++Run manifests record the resolved configuration, package versions, source file
++hashes, wall time and output paths, with input hashes, seeds and tolerances
++where registered by the stage. `results/run_metadata.json` aggregates them.
+ 
+ ## Conventions worth knowing before reading the code
+ 
+--- a/configs/illustrative_baseline.yaml
++++ b/configs/illustrative_baseline.yaml
+@@ -73,10 +73,11 @@
+       rx_sensitivity_dbm: -36.8
+       source: "Patel et al., Phys. Rev. X 2, 041010 (2012), measured sensitivity"
+     - id: rx_10g_apd
+-      label: "10 Gb/s DWDM APD receiver (datasheet)"
++      label: "10.7 Gb/s receiver (assumed benchmark)"
+       data_rate_gbps: 10.7
+       rx_sensitivity_dbm: -24.0
+-      source: "Lumentum tunable SFP+ DWDM datasheet, BER 1e-12, back-to-back"
++      source: "Assumed -24 dBm receiver sensitivity benchmark; not a measured or datasheet value"
++      provenance_category: "illustrative_assumption"
+   mux_insertion_db: 3.0        # assumed multiplexer insertion loss
+   demux_insertion_db: 3.0      # assumed demultiplexer insertion loss
+   system_margin_db: 3.0        # assumed engineering margin
+--- a/scripts/make_reports.py
++++ b/scripts/make_reports.py
+@@ -27,6 +27,9 @@
+        ("op_3km_m13dBm", 3.0, -13.0, "interior example"),
+        ("op_5km_m10dBm", 5.0, -10.0, "original comparison point"),
+        ("op_10km_m5dBm", 10.0, -5.0, "legacy comparison point")]
++SUMMARY_POINTS = PTS[:3] + [
++    ("op_6km_m10dBm", 6.0, -10.0, "active fidelity constraint comparison")
++] + PTS[3:]
+ ZERO = {"op_2km_m15dBm": "op_2km_m15dBm_margin0",
+         "op_3km_m13dBm": "op_3km_m13dBm_margin0",
+         "op_5km_m10dBm": "op_5km_m10dBm_margin0",
+@@ -68,16 +71,16 @@
+ 
+ 
+ def point_summary():
+-    """One row per predeclared operating point, from the stored scans."""
++    """One row per manuscript operating-point comparison, from stored scans."""
+     rows = []
+-    for rid, L, P, role in PTS:
++    for rid, L, P, role in SUMMARY_POINTS:
+         sel = rd(rid, "selection_summary.csv")
+         scan = rd(rid, "wavelength_scan.csv")
+         if sel is None or scan is None:
+             continue
+         al = scan["exclusion_reason"] == "allowed"
+         star = sel[sel["selection_rule"] == "max_Ylb_subject_to_Fmin"]
+-        z = rd(ZERO[rid], "selection_summary.csv")
++        z = rd(ZERO[rid], "selection_summary.csv") if rid in ZERO else None
+         zstar = (z[z["selection_rule"] == "max_Ylb_subject_to_Fmin"]
+                  if z is not None else None)
+         r = dict(run_id=rid, length_km=L, launch_dbm=P, role=role,
+@@ -254,6 +257,8 @@
+     # margin comparison at the four points
+     mtxt = []
+     for r in pts.itertuples():
++        if r.run_id not in ZERO:
++            continue
+         if np.isfinite(r.lam) and np.isfinite(r.lam0):
+             dlam = r.lam - r.lam0
+             dyl = r.Ylb / r.Ylb0 - 1.0 if r.Ylb0 > 0 else np.nan
+@@ -396,6 +401,22 @@
+ | Fixed reference 1550 nm | snapped to the nearest allowed candidate | reported invalid, nearest allowed listed separately |
+ | Certification boundary | interpolated, verified | bracketed bisection, residual {fmt(bnd_res, 2)} in C |
+ | Validation counting | mixed single count | {n_assert} asserted + {n_diag} diagnostics |
++
++## 9. Submission reproducibility update
++
++Finite-width FWM integration now uses the analytic product of the normalized
++line profile and accepted Gaussian mode before quadrature. The physical
++integrand, profile powers and delta-line branch are unchanged. Direct adaptive
++quadrature regression checks include the filter and photon-energy factor.
++
++Interval summaries on compressed allowed grids retain the original full-grid
++indices. Excluded carrier guards therefore separate intervals even when every
++allowed candidate is certified; this changes counts, not physical predictions.
++
++The full workflow now exports the 6 km, -10 dBm/ch example in Main Table 2.
++The original four diagnostic anchors and their margin comparisons are retained.
++The -24 dBm receiver benchmark is labelled as an illustrative assumption,
++matching the manuscript; its numerical value is unchanged.
+ """
+     open(os.path.join(RES, "changes.md"), "w", encoding="utf-8").write(ch)
+     print("  wrote changes.md")
+@@ -485,9 +506,10 @@
+ 8. Only one datasheet anchor (1550 nm) lies inside the quantum band; the rest of
+    the attenuation curve there is interpolated, and a manufacturer maximum is
+    neither a measurement nor a bound at interpolated wavelengths.
+-9. The classical launch power at the link-budget minimum uses the cited
+-   receiver sensitivities, the worst classical attenuation and assumed 3 dB
+-   multiplexer, 3 dB demultiplexer and 3 dB margin terms.
++9. The classical launch power at the link-budget minimum uses the literature
++   sensitivity at 1.25 Gb/s and the assumed -24 dBm benchmark at 10.7 Gb/s,
++   the worst classical attenuation, and assumed 3 dB multiplexer, 3 dB
++   demultiplexer and 3 dB margin terms.
+ 
+ ## 3. Sensitivity
+ 
+@@ -535,7 +557,7 @@
+ * The sampled key range is not a worst-case guarantee over private keys and does
+   not measure Pauli-twirl error.
+ 
+-## 6. Predeclared operating points
++## 6. Manuscript operating-point comparisons
+ 
+ | Operating point | Role | allowed | Omega_F | lambda* (nm) | C | F_e (identity) | Y_lb | status |
+ |---|---|---|---|---|---|---|---|---|
+--- a/scripts/make_tables.py
++++ b/scripts/make_tables.py
+@@ -41,6 +41,7 @@
+ POINTS = [("op_2km_m15dBm", 2.0, -15.0, 1.0, "interior example"),
+           ("op_3km_m13dBm", 3.0, -13.0, 1.0, "interior example"),
+           ("op_5km_m10dBm", 5.0, -10.0, 1.0, "original comparison point"),
++          ("op_6km_m10dBm", 6.0, -10.0, 1.0, "active fidelity constraint comparison"),
+           ("op_10km_m5dBm", 10.0, -5.0, 1.0, "legacy comparison point"),
+           ("op_2km_m15dBm_margin0", 2.0, -15.0, 0.0, "interior, zero added margin"),
+           ("op_3km_m13dBm_margin0", 3.0, -13.0, 0.0, "interior, zero added margin"),
+@@ -48,6 +49,9 @@
+            "original comparison, zero added margin"),
+           ("op_10km_m5dBm_margin0", 10.0, -5.0, 0.0,
+            "legacy comparison, zero added margin")]
++
++# Keep the original four diagnostic anchors when adding the Table 2 example.
++DIAGNOSTIC_POINTS = [p for p in POINTS if p[3] == 1.0 and p[1] != 6.0]
+ 
+ 
+ def emit(name, df, caption):
+@@ -288,7 +292,7 @@
+                 relative_yield_change=sig(r["relative_Y_lb_change_vs_delta_line"], 4),
+                 refinement="-", certification_status=r["status"],
+                 interpretation=r["profile_status"]))
+-    for rid, L, P, margin, role in POINTS[:4]:
++    for rid, L, P, margin, role in DIAGNOSTIC_POINTS:
+         cv = rd(rid, "convergence.csv")
+         if cv is None:
+             continue
+@@ -307,7 +311,7 @@
+                 certification_status=f"n_Omega_F = {r['n_Omega_F']}",
+                 interpretation="targets: <1e-3 relative in Y_lb and <1e-6 "
+                                "absolute in C"))
+-    for rid, L, P, margin, role in POINTS[:4]:
++    for rid, L, P, margin, role in DIAGNOSTIC_POINTS:
+         mr = rd(rid, "mode_reference.csv")
+         if mr is None:
+             continue
+--- a/scripts/run_all.py
++++ b/scripts/run_all.py
+@@ -25,9 +25,11 @@
+ 
+ # The four PREDECLARED operating points of the Methods, all with
+ # the 50 GHz carrier guard and the illustrative 1 GHz added tuning margin, plus
+-# the same points at zero added margin for comparison.
++# the same points at zero added margin for comparison. The 6 km, -10 dBm
++# point supplies the active-fidelity-constraint comparison in Main Table 2.
+ FULL = QUICK + [
+-    _pt(2.0, -15.0), _pt(3.0, -13.0), _pt(5.0, -10.0), _pt(10.0, -5.0),
++    _pt(2.0, -15.0), _pt(3.0, -13.0), _pt(5.0, -10.0),
++    _pt(6.0, -10.0), _pt(10.0, -5.0),
+     _pt(2.0, -15.0, 0.0, "op_2km_m15dBm_margin0"),
+     _pt(3.0, -13.0, 0.0, "op_3km_m13dBm_margin0"),
+     _pt(5.0, -10.0, 0.0, "op_5km_m10dBm_margin0"),
+--- a/scripts/run_operating_map.py
++++ b/scripts/run_operating_map.py
+@@ -67,6 +67,7 @@
+     grid = cf.build_grid(cfg, dep)
+     _, _, _, allowed, _ = cf.build_masks(cfg, grid, dep)
+     f_allowed = grid[allowed]
++    allowed_indices = np.flatnonzero(allowed)
+     lam_allowed = 299792458.0 / f_allowed * 1e9
+     P_ref_dbm = cfg["deployment"]["classical_launch_dbm_per_channel"]
+     P_ref = dbm_to_w(P_ref_dbm)
+@@ -138,8 +139,10 @@
+                            quality_domain_nonempty=True,
+                            n_Omega_F=int(mF.sum()), W_q_nonempty=bool(mW.any()),
+                            n_W_q=int(mW.sum()),
+-                           W_q_intervals=len(opt.intervals_from_mask(lam_allowed, mW)),
+-                           N_epsilon_intervals=len(opt.intervals_from_mask(lam_allowed, mN)),
++                           W_q_intervals=len(opt.intervals_from_mask(
++                               lam_allowed, mW, allowed_indices)),
++                           N_epsilon_intervals=len(opt.intervals_from_mask(
++                               lam_allowed, mN, allowed_indices)),
+                            n_N_epsilon=int(mN.sum()),
+                            max_Y_ub_over_Omega_q=float(np.max(pt["Y_ub"])),
+                            max_C_bound_over_Omega_q=float(np.max(pt["C"])),
+@@ -199,10 +202,11 @@
+                         gap_Fe_minus_C=fe - float(pt["C"][i]),
+                         W_q_nonempty=bool(mW.any()), n_W_q=int(mW.sum()),
+                         W_q_intervals_or_channel_count=len(
+-                            opt.intervals_from_mask(lam_allowed, mW)),
++                            opt.intervals_from_mask(lam_allowed, mW, allowed_indices)),
+                         N_epsilon_intervals_or_channel_count=len(
+                             opt.intervals_from_mask(
+-                                lam_allowed, mF & (pt["Y_lb"] >= (1 - eps) * pt["Y_lb"][i]))),
++                                lam_allowed, mF & (pt["Y_lb"] >= (1 - eps) * pt["Y_lb"][i]),
++                                allowed_indices)),
+                         status_reason=("certified" if mW.any() else
+                                        "quality certified; yield not certified" if mF.any()
+                                        else "NOT certified: Omega_F empty; the row reports "
+--- a/scripts/run_sensitivity.py
++++ b/scripts/run_sensitivity.py
+@@ -110,7 +110,7 @@
+ ]
+ 
+ 
+-def summarize(pt, lam, F_min, Y_min, eps, label, extra=None):
++def summarize(pt, lam, F_min, Y_min, eps, label, extra=None, grid_indices=None):
+     mF = (pt["s"] > 0) & (pt["C"] >= F_min)
+     out = dict(label=label, Omega_F_nonempty=bool(mF.any()), n_Omega_F=int(mF.sum()))
+     # M_theta = max over the allowed domain (s > 0) of C_7,1(q).  Omega_F is
+@@ -131,9 +131,10 @@
+                    Y_ub=float(pt["Y_ub"][i]), q=float(pt["q"][i]),
+                    target_status="certified" if mW.any() else
+                    "quality certified; yield not certified",
+-                   W_q_intervals=len(opt.intervals_from_mask(lam, mW)),
++                   W_q_intervals=len(opt.intervals_from_mask(lam, mW, grid_indices)),
+                    N_epsilon_intervals=len(opt.intervals_from_mask(
+-                       lam, mF & (pt["Y_lb"] >= (1 - eps) * pt["Y_lb"][i]))))
++                       lam, mF & (pt["Y_lb"] >= (1 - eps) * pt["Y_lb"][i]),
++                       grid_indices)))
+     else:
+         i = int(np.argmax(pt["Y_lb"]))
+         out.update(lambda_nm=np.nan, Y_lb=np.nan, C_bound=np.nan, P_acc=np.nan,
+@@ -161,6 +162,7 @@
+     grid = cf.build_grid(cfg, dep)
+     _, _, _, allowed, _ = cf.build_masks(cfg, grid, dep)
+     f_allowed = grid[allowed]
++    allowed_indices = np.flatnonzero(allowed)
+     lam = 299792458.0 / f_allowed * 1e9
+ 
+     anchors = [("interior_2km_-15dBm", 2.0, -15.0),
+@@ -196,7 +198,8 @@
+                     "ablation: the named additive source is removed and nu, s, r, q "
+                     "and all bounds are recomputed; no yield contribution is subtracted")))
+             # (2) re-optimized after ablation
+-            s2 = summarize(pt, lam, F_min, Y_min, eps, abname)
++            s2 = summarize(pt, lam, F_min, Y_min, eps, abname,
++                           grid_indices=allowed_indices)
+             abl_rows.append(dict(
+                 anchor=aname, length_km=L, launch_dbm=P,
+                 scenario_or_removed_impairment=abname,
+@@ -224,7 +227,8 @@
+             sets[(aname, sname)] = pt
+             r = summarize(pt, lam, F_min, Y_min, eps, sname,
+                           extra=dict(anchor=aname, length_km=L, launch_dbm=P,
+-                                     uncertainty_or_sensitivity_interpretation=interp))
++                                     uncertainty_or_sensitivity_interpretation=interp),
++                          grid_indices=allowed_indices)
+             sc_rows.append(r)
+     man.add_output(io.write_csv(os.path.join(d, "scenario_sensitivity.csv"), sc_rows))
+ 
+--- a/src/mode_reference.py
++++ b/src/mode_reference.py
+@@ -99,14 +99,22 @@
+             pl = prods.power_incoherent_w[lo:hi]
+             if len(fl):
+                 if sc.fwm_profile_rms_hz > 0:
++                    # Resolve the product of the line profile and accepted
++                    # mode, rather than sampling the broad line alone.
++                    variance_sum = mode.sigma ** 2 + sc.fwm_profile_rms_hz ** 2
++                    offset = fl - mode.f0
++                    center = mode.f0 + offset * (mode.sigma ** 2 / variance_sum)
++                    sigma = mode.sigma * sc.fwm_profile_rms_hz / np.sqrt(variance_sum)
++                    overlap = np.exp(-0.5 * offset ** 2 / variance_sum) / np.sqrt(
++                        2.0 * np.pi * variance_sum)
+                     x, wl = np.polynomial.hermite.hermgauss(order)
+-                    wl = wl / np.sqrt(np.pi)
+-                    ff = fl[:, None] + np.sqrt(2.0) * sc.fwm_profile_rms_hz * x[None, :]
++                    ff = center[:, None] + np.sqrt(2.0) * sigma * x[None, :]
++                    wl = overlap[:, None] * (wl[None, :] / np.sqrt(np.pi))
+                     fo = np.ones_like(ff)
+                     for _ in range(2 - m):
+                         fo = fo * np.abs(_amp_traversal(sc, filt, ff)) ** 2
+                     part += 0.5 * float(np.sum(
+-                        pl[:, None] * wl[None, :] * mode.intensity(ff)
++                        pl[:, None] * wl
+                         * sc.eta_rx * filt(ff) * fo / (H_PLANCK * ff)))
+                 else:
+                     fo = np.ones_like(fl)
+--- a/src/modes.py
++++ b/src/modes.py
+@@ -144,13 +144,19 @@
+                            * np.asarray(transfer_fn(f_line_hz), dtype=float)
+                            / (H_PLANCK * f_line_hz)))
+         return val if per_polarization else 0.5 * val
++    # Multiply the two Gaussian densities analytically. Sampling their product
++    # resolves the accepted mode even when the generated profile is broad.
++    variance_sum = mode.sigma ** 2 + float(rms_hz) ** 2
++    offset = f_line_hz - mode.f0
++    center = mode.f0 + offset * (mode.sigma ** 2 / variance_sum)
++    sigma = mode.sigma * float(rms_hz) / np.sqrt(variance_sum)
++    overlap = np.exp(-0.5 * offset ** 2 / variance_sum) / np.sqrt(
++        2.0 * np.pi * variance_sum)
+     x, w = np.polynomial.hermite.hermgauss(int(order))
+-    w = w / np.sqrt(np.pi)
+-    # f[l, k] = f_l + sqrt(2) sigma_p x_k
+-    f = f_line_hz[:, None] + np.sqrt(2.0) * float(rms_hz) * x[None, :]
+-    integ = (mode.intensity(f) * np.asarray(transfer_fn(f), dtype=float)
+-             / (H_PLANCK * f))
+-    val = float(np.sum(power_w[:, None] * w[None, :] * integ))
++    f = center[:, None] + np.sqrt(2.0) * sigma * x[None, :]
++    w = overlap[:, None] * (w[None, :] / np.sqrt(np.pi))
++    integ = np.asarray(transfer_fn(f), dtype=float) / (H_PLANCK * f)
++    val = float(np.sum(power_w[:, None] * w * integ))
+     return val if per_polarization else 0.5 * val
+ 
+ 
+--- a/src/optimization.py
++++ b/src/optimization.py
+@@ -67,15 +67,25 @@
+     return cols
+ 
+ 
+-def intervals_from_mask(x, mask):
+-    """Contiguous [x_lo, x_hi] runs of True in `mask`, as grid-endpoint spans."""
++def intervals_from_mask(x, mask, grid_indices=None):
++    """Contiguous [x_lo, x_hi] runs of True, as grid-endpoint spans.
++
++    For a filtered grid, supply its indices in the original full grid so that
++    excluded candidates still separate intervals. No spacing threshold is used.
++    """
+     x = np.asarray(x); mask = np.asarray(mask, dtype=bool)
++    indices = (np.arange(len(mask)) if grid_indices is None
++               else np.asarray(grid_indices))
++    if x.ndim != 1 or mask.ndim != 1 or indices.ndim != 1 or not (
++            len(x) == len(mask) == len(indices)):
++        raise ValueError("x, mask and grid_indices must be equal-length vectors")
+     out = []
+     i = 0
+     while i < len(mask):
+         if mask[i]:
+             j = i
+-            while j + 1 < len(mask) and mask[j + 1]:
++            while (j + 1 < len(mask) and mask[j + 1]
++                   and indices[j + 1] == indices[j] + 1):
+                 j += 1
+             out.append((float(min(x[i], x[j])), float(max(x[i], x[j]))))
+             i = j + 1
+--- a/src/runio.py
++++ b/src/runio.py
+@@ -313,7 +313,8 @@
+         *[row(f"classical_receiver_{rx['id']}", "S_rx",
+               f"{float(rx['rx_sensitivity_dbm']):g}", "dBm",
+               "classical receiver input", str(rx["source"]),
+-              (L if "measured" in str(rx["source"]) else M), "-",
++              rx.get("provenance_category",
++                     L if "measured" in str(rx["source"]) else M), "-",
+               f"{rx['label']}; sets the link-budget minimum launch power")
+           for rx in cfg.get("classical_link", {}).get("receivers", [])],
+         *([row("classical_link_terms", "IL_mux, IL_demux, M",
+--- a/tests/test_core.py
++++ b/tests/test_core.py
+@@ -18,6 +18,7 @@
+ import modes as md
+ import optical_channel as oc
+ import optical_dilation as od
++import optimization as opt
+ import protocol as pr
+ import raman as rm
+ import reliability as rl
+@@ -163,6 +164,54 @@
+                                rel=1e-14, abs=0.0)
+     wide = md.occupancy_from_profiled_lines(mode, [1e-12], [193.4e12], 25e9)
+     assert wide < d0
++
++
++@pytest.mark.parametrize("width_ghz,offset_ghz", [(5, 0), (5, 25), (25, 0), (25, 50)])
++def test_profiled_lines_with_filter_against_adaptive_quadrature(width_ghz, offset_ghz):
++    """Resolve a broad line overlapping a narrow accepted mode independently."""
++    from scipy.integrate import quad
++    mode = md.GaussianMode(193.4e12, 10e9)
++    filt = md.SuperGaussianFilter(mode.f0, 25e9, 4, 110.0,
++                                 (nm_to_hz(1600.0), nm_to_hz(1500.0)))
++    line = mode.f0 + offset_ghz * 1e9
++    width = width_ghz * 1e9
++    power = 1e-12
++
++    # Integrate the original densities over offset in GHz; no Gaussian-product
++    # reduction or Hermite nodes from the production implementation are used.
++    def integrand(offset):
++        f = mode.f0 + offset * 1e9
++        profile = np.exp(-0.5 * ((f - line) / width) ** 2) / (
++            np.sqrt(2 * np.pi) * width)
++        return 0.5 * power * profile * mode.intensity(f) * filt(f) / (
++            H_PLANCK * f) * 1e9
++
++    reference, error = quad(integrand, -100, 100, epsabs=1e-22,
++                            epsrel=1e-10, points=[-12.5, 0, 12.5])
++    actual = md.occupancy_from_profiled_lines(
++        mode, [power], [line], width, transfer_fn=filt, order=48)
++    assert error < 1e-8 * reference
++    assert actual == pytest.approx(reference, rel=2e-7, abs=0.0)
++
++
++def test_intervals_preserve_excluded_gaps_in_filtered_nonuniform_grid():
++    x = np.array([1560., 1559.9, 1558., 1551.2, 1551., 1549., 1537., 1536.8])
++    allowed = np.array([True, True, False, True, True, False, True, True])
++    indices = np.flatnonzero(allowed)
++    expected = [(1559.9, 1560.), (1551., 1551.2), (1536.8, 1537.)]
++    assert opt.intervals_from_mask(x, allowed) == expected
++    assert opt.intervals_from_mask(x[allowed], np.ones(6, dtype=bool), indices) == expected
++    selected = np.array([True, False, True, True, False, True])
++    full_mask = np.zeros(len(x), dtype=bool)
++    full_mask[indices] = selected
++    assert opt.intervals_from_mask(x[allowed], selected, indices) == (
++        opt.intervals_from_mask(x, full_mask))
++
++
++def test_intervals_empty_and_mismatched_inputs():
++    assert opt.intervals_from_mask([], []) == []
++    with pytest.raises(ValueError, match="equal-length vectors"):
++        opt.intervals_from_mask([1., 2.], [True, True], [0])
+ 
+ 
+ # ------------------------------------------------------------------------- FWM

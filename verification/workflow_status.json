@@ -1,0 +1,258 @@
+{
+  "execution": "Existing FULL workflow commands; initial stages serial, remaining independent stages concurrent; rendering after numerical stages.",
+  "stages": [
+    {
+      "stage_index": 0,
+      "name": "decoder validation",
+      "exit_code": 0,
+      "log": "completed_serial_stages.log"
+    },
+    {
+      "stage_index": 1,
+      "name": "optical validation",
+      "exit_code": 0,
+      "log": "completed_serial_stages.log"
+    },
+    {
+      "stage_index": 2,
+      "name": "pytest: 35 passed",
+      "exit_code": 0,
+      "log": "completed_serial_stages.log"
+    },
+    {
+      "stage_index": 3,
+      "name": "2 km baseline",
+      "exit_code": 0,
+      "log": "completed_serial_stages.log"
+    },
+    {
+      "stage_index": 4,
+      "name": "Stage D    operating point 3 km, -13 dBm/ch, margin 1 GHz",
+      "command": [
+        "scripts/run_baseline.py"
+      ],
+      "overrides": {
+        "QCFC_RUN_ID": "op_3km_m13dBm",
+        "QCFC_LENGTH_KM": "3.0",
+        "QCFC_LAUNCH_DBM": "-13.0",
+        "QCFC_MARGIN_GHZ": "1.0"
+      },
+      "exit_code": 0,
+      "wall_time_s": 201.454,
+      "prior_attempt_exit_code": 0,
+      "final_log": "04-retry.log",
+      "rerun_reason": "Reran an incomplete scan export after interruption."
+    },
+    {
+      "stage_index": 5,
+      "name": "Stage D    operating point 5 km, -10 dBm/ch, margin 1 GHz",
+      "command": [
+        "scripts/run_baseline.py"
+      ],
+      "overrides": {
+        "QCFC_RUN_ID": "op_5km_m10dBm",
+        "QCFC_LENGTH_KM": "5.0",
+        "QCFC_LAUNCH_DBM": "-10.0",
+        "QCFC_MARGIN_GHZ": "1.0"
+      },
+      "exit_code": 0,
+      "wall_time_s": 120.436
+    },
+    {
+      "stage_index": 6,
+      "name": "Stage D    operating point 6 km, -10 dBm/ch, margin 1 GHz",
+      "command": [
+        "scripts/run_baseline.py"
+      ],
+      "overrides": {
+        "QCFC_RUN_ID": "op_6km_m10dBm",
+        "QCFC_LENGTH_KM": "6.0",
+        "QCFC_LAUNCH_DBM": "-10.0",
+        "QCFC_MARGIN_GHZ": "1.0"
+      },
+      "exit_code": 0,
+      "wall_time_s": 155.484
+    },
+    {
+      "stage_index": 7,
+      "name": "Stage D    operating point 10 km, -5 dBm/ch, margin 1 GHz",
+      "command": [
+        "scripts/run_baseline.py"
+      ],
+      "overrides": {
+        "QCFC_RUN_ID": "op_10km_m5dBm",
+        "QCFC_LENGTH_KM": "10.0",
+        "QCFC_LAUNCH_DBM": "-5.0",
+        "QCFC_MARGIN_GHZ": "1.0"
+      },
+      "exit_code": 0,
+      "wall_time_s": 161.657
+    },
+    {
+      "stage_index": 8,
+      "name": "Stage D    operating point 2 km, -15 dBm/ch, margin 0 GHz",
+      "command": [
+        "scripts/run_baseline.py"
+      ],
+      "overrides": {
+        "QCFC_RUN_ID": "op_2km_m15dBm_margin0",
+        "QCFC_LENGTH_KM": "2.0",
+        "QCFC_LAUNCH_DBM": "-15.0",
+        "QCFC_MARGIN_GHZ": "0.0"
+      },
+      "exit_code": 0,
+      "wall_time_s": 117.248
+    },
+    {
+      "stage_index": 9,
+      "name": "Stage D    operating point 3 km, -13 dBm/ch, margin 0 GHz",
+      "command": [
+        "scripts/run_baseline.py"
+      ],
+      "overrides": {
+        "QCFC_RUN_ID": "op_3km_m13dBm_margin0",
+        "QCFC_LENGTH_KM": "3.0",
+        "QCFC_LAUNCH_DBM": "-13.0",
+        "QCFC_MARGIN_GHZ": "0.0"
+      },
+      "exit_code": 0,
+      "wall_time_s": 212.592
+    },
+    {
+      "stage_index": 10,
+      "name": "Stage D    operating point 5 km, -10 dBm/ch, margin 0 GHz",
+      "command": [
+        "scripts/run_baseline.py"
+      ],
+      "overrides": {
+        "QCFC_RUN_ID": "op_5km_m10dBm_margin0",
+        "QCFC_LENGTH_KM": "5.0",
+        "QCFC_LAUNCH_DBM": "-10.0",
+        "QCFC_MARGIN_GHZ": "0.0"
+      },
+      "exit_code": 0,
+      "wall_time_s": 147.013
+    },
+    {
+      "stage_index": 11,
+      "name": "Stage D    operating point 10 km, -5 dBm/ch, margin 0 GHz",
+      "command": [
+        "scripts/run_baseline.py"
+      ],
+      "overrides": {
+        "QCFC_RUN_ID": "op_10km_m5dBm_margin0",
+        "QCFC_LENGTH_KM": "10.0",
+        "QCFC_LAUNCH_DBM": "-5.0",
+        "QCFC_MARGIN_GHZ": "0.0"
+      },
+      "exit_code": 0,
+      "wall_time_s": 179.447
+    },
+    {
+      "stage_index": 12,
+      "name": "Stage D    legacy reserved-window comparison",
+      "command": [
+        "scripts/run_baseline.py"
+      ],
+      "overrides": {
+        "QCFC_BASELINE_CONFIG": "legacy_reserved_window.yaml",
+        "QCFC_RUN_ID": "legacy_reserved_window"
+      },
+      "exit_code": 0,
+      "wall_time_s": 125.442
+    },
+    {
+      "stage_index": 13,
+      "name": "Stage E    operating map",
+      "command": [
+        "scripts/run_operating_map.py"
+      ],
+      "overrides": {},
+      "exit_code": 0,
+      "wall_time_s": 138.482
+    },
+    {
+      "stage_index": 14,
+      "name": "Stage E    guard geometry and tuning margin",
+      "command": [
+        "scripts/run_guard_margin.py"
+      ],
+      "overrides": {},
+      "exit_code": 0,
+      "wall_time_s": 94.947
+    },
+    {
+      "stage_index": 15,
+      "name": "Stage E    certification boundary refinement",
+      "command": [
+        "scripts/run_boundary_refine.py"
+      ],
+      "overrides": {},
+      "exit_code": 0,
+      "wall_time_s": 1.463,
+      "prior_attempt_exit_code": 1,
+      "final_log": "15-retry.log",
+      "rerun_reason": "Boundary refinement requires the completed operating map."
+    },
+    {
+      "stage_index": 16,
+      "name": "Stage E    FWM spectral-profile diagnostic",
+      "command": [
+        "scripts/run_profile_width.py"
+      ],
+      "overrides": {},
+      "exit_code": 0,
+      "wall_time_s": 401.841
+    },
+    {
+      "stage_index": 17,
+      "name": "Stage E    link-budget points and base-error sweep",
+      "command": [
+        "scripts/run_link_budget.py"
+      ],
+      "overrides": {},
+      "exit_code": 0,
+      "wall_time_s": 363.109
+    },
+    {
+      "stage_index": 18,
+      "name": "Stage F    sensitivity and ablations",
+      "command": [
+        "scripts/run_sensitivity.py"
+      ],
+      "overrides": {},
+      "exit_code": 0,
+      "wall_time_s": 368.9
+    },
+    {
+      "stage_index": 19,
+      "name": "figures",
+      "command": [
+        "scripts/make_figures.py"
+      ],
+      "overrides": {},
+      "exit_code": 0,
+      "wall_time_s": 34.676
+    },
+    {
+      "stage_index": 20,
+      "name": "tables",
+      "command": [
+        "scripts/make_tables.py"
+      ],
+      "overrides": {},
+      "exit_code": 0,
+      "wall_time_s": 0.858
+    },
+    {
+      "stage_index": 21,
+      "name": "reports",
+      "command": [
+        "scripts/make_reports.py"
+      ],
+      "overrides": {},
+      "exit_code": 0,
+      "wall_time_s": 0.699
+    }
+  ]
+}

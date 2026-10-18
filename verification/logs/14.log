@@ -1,0 +1,36 @@
+  physics cached for 10.0 km, -5.0 dBm (44 s)
+  physics cached for 5.0 km, -10.0 dBm (58 s)
+  physics cached for 3.0 km, -13.0 dBm (72 s)
+  physics cached for 2.0 km, -15.0 dBm (85 s)
+
+guard/margin study: 60 rows (94 s)
+  L=5 P=-10  guard=49 margin=0  allowed= 643 comps= 34 zero-w=  0 nOmF= 643  lam*= 1550.509 C= 0.99247 certified
+  L=5 P=-10  guard=49 margin=1  allowed= 541 comps= 34 zero-w= 31 nOmF= 541  lam*= 1550.517 C= 0.99247 certified
+  L=5 P=-10  guard=49 margin=2  allowed= 501 comps=  3 zero-w=  0 nOmF= 501  lam*= 1551.327 C= 0.99238 certified
+  L=5 P=-10  guard=49 margin=2  allowed= 492 comps=  3 zero-w=  0 nOmF= 492  lam*= 1551.331 C= 0.99238 certified
+  L=5 P=-10  guard=49 margin=5  allowed= 456 comps=  3 zero-w=  0 nOmF= 456  lam*= 1551.351 C= 0.99238 certified
+  L=5 P=-10  guard=50 margin=0  allowed= 541 comps= 34 zero-w= 31 nOmF= 541  lam*= 1550.517 C= 0.99247 certified
+  L=5 P=-10  guard=50 margin=1  allowed= 501 comps=  3 zero-w=  0 nOmF= 501  lam*= 1551.327 C= 0.99238 certified
+  L=5 P=-10  guard=50 margin=2  allowed= 486 comps=  3 zero-w=  0 nOmF= 486  lam*= 1551.335 C= 0.99238 certified
+  L=5 P=-10  guard=50 margin=2  allowed= 480 comps=  3 zero-w=  0 nOmF= 480  lam*= 1551.339 C= 0.99238 certified
+  L=5 P=-10  guard=50 margin=5  allowed= 447 comps=  3 zero-w=  0 nOmF= 447  lam*= 1551.359 C= 0.99238 certified
+  L=5 P=-10  guard=51 margin=0  allowed= 501 comps=  3 zero-w=  0 nOmF= 501  lam*= 1551.327 C= 0.99238 certified
+  L=5 P=-10  guard=51 margin=1  allowed= 486 comps=  3 zero-w=  0 nOmF= 486  lam*= 1551.335 C= 0.99238 certified
+  L=5 P=-10  guard=51 margin=2  allowed= 471 comps=  3 zero-w=  0 nOmF= 471  lam*= 1551.343 C= 0.99238 certified
+  L=5 P=-10  guard=51 margin=2  allowed= 462 comps=  3 zero-w=  0 nOmF= 462  lam*= 1551.347 C= 0.99238 certified
+  L=5 P=-10  guard=51 margin=5  allowed= 438 comps=  3 zero-w=  0 nOmF= 438  lam*= 1551.367 C= 0.99238 certified
+  L=3 P=-13  guard=49 margin=0  allowed= 643 comps= 34 zero-w=  0 nOmF= 643  lam*= 1550.509 C= 0.99731 certified
+  L=3 P=-13  guard=49 margin=1  allowed= 541 comps= 34 zero-w= 31 nOmF= 541  lam*= 1550.517 C= 0.99731 certified
+  L=3 P=-13  guard=49 margin=2  allowed= 501 comps=  3 zero-w=  0 nOmF= 501  lam*= 1551.327 C= 0.99730 certified
+  L=3 P=-13  guard=49 margin=2  allowed= 492 comps=  3 zero-w=  0 nOmF= 492  lam*= 1551.331 C= 0.99730 certified
+  L=3 P=-13  guard=49 margin=5  allowed= 456 comps=  3 zero-w=  0 nOmF= 456  lam*= 1551.351 C= 0.99730 certified
+  L=3 P=-13  guard=50 margin=0  allowed= 541 comps= 34 zero-w= 31 nOmF= 541  lam*= 1550.517 C= 0.99731 certified
+  L=3 P=-13  guard=50 margin=1  allowed= 501 comps=  3 zero-w=  0 nOmF= 501  lam*= 1551.327 C= 0.99730 certified
+  L=3 P=-13  guard=50 margin=2  allowed= 486 comps=  3 zero-w=  0 nOmF= 486  lam*= 1551.335 C= 0.99730 certified
+  L=3 P=-13  guard=50 margin=2  allowed= 480 comps=  3 zero-w=  0 nOmF= 480  lam*= 1551.339 C= 0.99730 certified
+  L=3 P=-13  guard=50 margin=5  allowed= 447 comps=  3 zero-w=  0 nOmF= 447  lam*= 1551.359 C= 0.99730 certified
+  L=3 P=-13  guard=51 margin=0  allowed= 501 comps=  3 zero-w=  0 nOmF= 501  lam*= 1551.327 C= 0.99730 certified
+  L=3 P=-13  guard=51 margin=1  allowed= 486 comps=  3 zero-w=  0 nOmF= 486  lam*= 1551.335 C= 0.99730 certified
+  L=3 P=-13  guard=51 margin=2  allowed= 471 comps=  3 zero-w=  0 nOmF= 471  lam*= 1551.343 C= 0.99730 certified
+  L=3 P=-13  guard=51 margin=2  allowed= 462 comps=  3 zero-w=  0 nOmF= 462  lam*= 1551.347 C= 0.99730 certified
+  L=3 P=-13  guard=51 margin=5  allowed= 438 comps=  3 zero-w=  0 nOmF= 438  lam*= 1551.367 C= 0.99730 certified

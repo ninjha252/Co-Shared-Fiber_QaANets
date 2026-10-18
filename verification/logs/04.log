@@ -1,0 +1,10 @@
+[op_3km_m13dBm] scanning ...
+[op_3km_m13dBm] convergence: grid refinement at fixed quadrature ...
+[op_3km_m13dBm] convergence: quadrature refinement at fixed grid ...
+
+[op_3km_m13dBm] 2298 grid points, 454 allowed
+  max C_bound over Omega_q = 0.997484 at 1537.011 nm
+  F_min = 0.99: Omega_F has 454 candidates
+  lambda* = 1551.3273 nm, Y_lb* = 9.1569e-04, C = 0.997297
+  max Y_ub over Omega_q = 9.1818e-04 (Y_min = 1e-06)
+  wall time 121.4 s

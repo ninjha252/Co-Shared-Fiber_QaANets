@@ -1,0 +1,22 @@
+{
+  "base_commit": "e271dafa2a92dc38d7ce3d567a9cbcc41155800b",
+  "replace": [
+    "README.md",
+    "configs/illustrative_baseline.yaml",
+    "scripts/make_reports.py",
+    "scripts/make_tables.py",
+    "scripts/run_all.py",
+    "scripts/run_operating_map.py",
+    "scripts/run_sensitivity.py",
+    "src/mode_reference.py",
+    "src/modes.py",
+    "src/optimization.py",
+    "src/runio.py",
+    "tests/test_core.py"
+  ],
+  "add": [
+    "CHANGES.md",
+    "results/",
+    "verification/"
+  ]
+}
