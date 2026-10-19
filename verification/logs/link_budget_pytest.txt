@@ -1,0 +1,3 @@
+Command: python -m pytest tests -q
+Result: 36 passed in 19.83s
+Includes receiver-balance regression for the corrected fiber-input budget.

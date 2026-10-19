@@ -1,0 +1,21 @@
+building figures from stored results (default) ...
+  wrote figure1_optical_channel_verification.pdf/.svg/.png
+  wrote figure2_logical_fidelity_and_bound.pdf/.svg/.png
+  wrote figure3_wavelength_selection.pdf/.svg/.png
+  wrote figure4_operating_regions_and_sensitivity.pdf/.svg/.png
+  wrote figureS1_supplementary_diagnostics.pdf/.svg/.png
+  wrote figureS2_base_error_and_link_budget.pdf/.svg/.png
+building figures from stored results (nocaption) ...
+  wrote figure1_optical_channel_verification.pdf/.svg/.png
+  wrote figure2_logical_fidelity_and_bound.pdf/.svg/.png
+  wrote figure3_wavelength_selection.pdf/.svg/.png
+  wrote figure4_operating_regions_and_sensitivity.pdf/.svg/.png
+  wrote figureS1_supplementary_diagnostics.pdf/.svg/.png
+  wrote figureS2_base_error_and_link_budget.pdf/.svg/.png
+building figures from stored results (final) ...
+  wrote figure1_optical_channel_verification.pdf/.svg/.png
+  wrote figure2_logical_fidelity_and_bound.pdf/.svg/.png
+  wrote figure3_wavelength_selection.pdf/.svg/.png
+  wrote figure4_operating_regions_and_sensitivity.pdf/.svg/.png
+  wrote figureS1_supplementary_diagnostics.pdf/.svg/.png
+  wrote figureS2_base_error_and_link_budget.pdf/.svg/.png

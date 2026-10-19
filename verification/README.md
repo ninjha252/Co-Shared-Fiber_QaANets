@@ -1,3 +1,12 @@
+# Verification history
+
+The section below documents the previous complete release, before the
+classical fiber-input budget correction. It is retained as historical evidence,
+not as a claim that every earlier manifest matches the current source tree.
+The current targeted rerun is documented in `link_budget_correction.json` and
+`link_budget_correction_summary.md`. Unaffected numerical outputs are retained
+from that validated release.
+
 # Verification of the submission update
 
 All 22 stages listed in the updated `scripts/run_all.py` completed using the

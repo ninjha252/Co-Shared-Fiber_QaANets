@@ -1,5 +1,16 @@
 # Quantum–classical coexistence in a single fibre: simulation code
 
+## Classical-budget correction for review
+
+This package corrects the classical power reference plane relative to GitHub
+commit `0553fd0f24a22fea7a17702aaca44aceb16fb7bf`. The input mux loss is
+excluded from the fiber-input minimum; the output demux and system margin
+remain 3 dB each. The link-budget and base-error calculations were rerun.
+Fixed-power scans and maps were retained. See
+`verification/link_budget_correction_summary.md` for results, exact manuscript
+replacements, checks, and the scope of the update. This review package has not
+been pushed to GitHub.
+
 Simulation and analysis code for the manuscript on quantum–classical
 coexistence over a single fibre. It evaluates an optical-to-qubit reduction of
 the physical channel, a correctable-history fidelity bound for a
@@ -154,6 +165,12 @@ hashes, wall time and output paths, with input hashes, seeds and tolerances
 where registered by the stage. `results/run_metadata.json` aggregates them.
 
 ## Conventions worth knowing before reading the code
+
+- Classical launch powers are specified at the fiber input, after the input
+  multiplexer. The classical budget is `P_fiber,min = S_rx + alpha_c L +
+  IL_demux + M_sys`, with 3 dB demultiplexer loss and 3 dB system margin.
+  The 3 dB input multiplexer loss is added only for the upstream transmitter
+  requirement, `P_tx,min = P_fiber,min + IL_mux`. No extra design margin is used.
 
 - Internal units are SI: metres, seconds, hertz, watts, radians. Conversion to
   km, GHz, nm and dBm happens only at the input and output boundaries.

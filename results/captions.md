@@ -130,7 +130,7 @@ recurrence, (full chain / scalar) - 1 in percent, for `T`, `nu` and `Y_lb` at
 the evaluated candidates of the four predeclared points;
 the main results use the scalar recurrence with the declared mode restoration at
 each traversal output, and this panel is the size of that modelling choice.
-(c) Peak propagated FWM occupancy over the allowed domain against the prescribed
+(c) Peak summed per-traversal FWM occupancy over the allowed domain against the prescribed
 profile rms width; the widths are prescribed, not derived from a modulation
 model.
 
@@ -148,5 +148,5 @@ right axis: 0.07%, Agnesi et al., Optica 7, 284 (2020): self-compensating encode
 A receiver is certified at the nominal `e_0` wherever its curve lies above the
 `nominal` line.  (c) The optimized lower yield bound `Y_lb` along each
 link-budget line, with the same markers at the nominal `e_0 = 0.2%`,
-with `Y_min` dashed.  1.25 Gb/s receiver (-36.8 dBm): fidelity certified up to 26 km and Y_min met up to 10 km; 10.7 Gb/s receiver (-24 dBm): fidelity certified up to 9 km and Y_min met up to 9 km.  At the 5 km,
+with `Y_min` dashed.  1.25 Gb/s receiver (-36.8 dBm): fidelity certified up to 30 km and Y_min met up to 10 km; 10.7 Gb/s receiver (-24 dBm): fidelity certified up to 13 km and Y_min met up to 10 km.  At the 5 km,
 -10 dBm/ch point the largest admissible `e_0` is 0.305%.

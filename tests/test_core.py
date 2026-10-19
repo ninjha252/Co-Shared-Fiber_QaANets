@@ -30,6 +30,18 @@ from units import (dbm_to_w, w_to_dbm, nm_to_hz, hz_to_nm, db_per_km_to_per_m,
 BENCH = dict(eta=[0.55] * 3, nu=[3e-4] * 3, e0=0.002, z=[1e-5, 0.0, 1e-5])
 
 
+def test_classical_fiber_input_budget_closes_at_receiver_with_margin():
+    import link_budget as lb
+    length = np.array([0.0, 10.0, 30.0])
+    p_fiber = lb.minimum_launch_dbm(length, -36.8, 0.188, 3.0, 3.0)
+    # Propagate from the fiber input, through the span and output demux.
+    p_received = p_fiber - 0.188 * length - 3.0
+    assert p_received == pytest.approx(np.full(3, -36.8 + 3.0), abs=1e-12)
+    # An upstream transmitter supplies the mux loss before this reference plane.
+    p_transmitter = p_fiber + 3.0
+    assert p_transmitter - 3.0 == pytest.approx(p_fiber, abs=1e-12)
+
+
 # ----------------------------------------------------------------------- units
 def test_unit_round_trips():
     assert w_to_dbm(dbm_to_w(-5.0)) == pytest.approx(-5.0, abs=1e-12)

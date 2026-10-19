@@ -1,0 +1,7 @@
+building tables from stored results ...
+  wrote main_table1_model_inputs_and_numerical_settings.csv/.md/.tex  (34 rows)
+  wrote main_table2_wavelength_selection_outcomes.csv/.md/.tex  (35 rows)
+  wrote supp_table_s1_numerical_verification.csv/.md/.tex  (106 rows)
+  wrote supp_table_s2_sensitivity_and_convergence.csv/.md/.tex  (133 rows)
+  wrote supp_table_s3_link_budget_and_base_error.csv/.md/.tex  (72 rows)
+  copied 61 supporting CSVs

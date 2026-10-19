@@ -388,8 +388,10 @@ def main():
              "Supplementary Table S3 | Operating points at the classical "
              "link-budget minimum and the base-error requirement. The launch "
              "power is the smallest that closes the classical link for the named "
-             "receiver (sensitivity, worst classical attenuation, multiplexer, "
-             "demultiplexer and margin). The largest admissible e0 is the "
+             "receiver (sensitivity, worst classical attenuation, output "
+             "demultiplexer and system margin). Power is specified at the fiber "
+             "input; input mux loss applies only to the upstream transmitter. "
+             "The largest admissible e0 is the "
              "largest per-traversal base error at which some allowed candidate "
              "still meets C >= F_min; the anchor rows re-evaluate each point at "
              "the published e0 values with the optical solution unchanged.")

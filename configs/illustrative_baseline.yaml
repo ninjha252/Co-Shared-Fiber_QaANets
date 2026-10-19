@@ -65,7 +65,8 @@ search:
 
 classical_link:
   # The classical launch power is set by the data link budget, not chosen
-  # freely: P_min(L) = S_rx + alpha_c L + mux + demux + margin.
+  # freely: P_fiber,min(L) = S_rx + alpha_c L + demux + margin.
+  # Input mux loss applies only to the upstream transmitter power requirement.
   receivers:
     - id: rx_1g25_measured
       label: "1.25 Gb/s receiver (measured)"
@@ -78,7 +79,7 @@ classical_link:
       rx_sensitivity_dbm: -24.0
       source: "Assumed -24 dBm receiver sensitivity benchmark; not a measured or datasheet value"
       provenance_category: "illustrative_assumption"
-  mux_insertion_db: 3.0        # assumed multiplexer insertion loss
+  mux_insertion_db: 3.0        # upstream transmitter-to-fiber loss; excluded from fiber-input budget
   demux_insertion_db: 3.0      # assumed demultiplexer insertion loss
   system_margin_db: 3.0        # assumed engineering margin
   evaluation_lengths_km: [5.0, 10.0, 15.0, 20.0]

@@ -501,15 +501,16 @@ spectral shape.
 6. Backward FWM generation, reflection and Rayleigh backscatter are not modeled,
    so the return traversal receives no modeled FWM.
 7. The {margin:g} GHz tuning margin is an illustrative scenario choice, not a
-   measured hardware tolerance; 2.5 GHz, a typical datasheet laser frequency
-   stability, is included in the margin study.
+   measured hardware tolerance; 2.5 GHz is included as a sensitivity case,
+   motivated by the EXFO FTBx-2850 frequency uncertainty specification.
 8. Only one datasheet anchor (1550 nm) lies inside the quantum band; the rest of
    the attenuation curve there is interpolated, and a manufacturer maximum is
    neither a measurement nor a bound at interpolated wavelengths.
 9. The classical launch power at the link-budget minimum uses the literature
    sensitivity at 1.25 Gb/s and the assumed -24 dBm benchmark at 10.7 Gb/s,
-   the worst classical attenuation, and assumed 3 dB multiplexer, 3 dB
-   demultiplexer and 3 dB margin terms.
+   the worst classical attenuation, and assumed 3 dB output demultiplexer
+   and 3 dB system margin terms. Powers are at the fiber input; the 3 dB
+   input multiplexer loss applies only to the upstream transmitter power.
 
 ## 3. Sensitivity
 
@@ -711,7 +712,7 @@ recurrence, (full chain / scalar) - 1 in percent, for `T`, `nu` and `Y_lb` at
 the evaluated candidates of the four predeclared points;
 the main results use the scalar recurrence with the declared mode restoration at
 each traversal output, and this panel is the size of that modelling choice.
-(c) Peak propagated FWM occupancy over the allowed domain against the prescribed
+(c) Peak summed per-traversal FWM occupancy over the allowed domain against the prescribed
 profile rms width; the widths are prescribed, not derived from a modulation
 model.
 

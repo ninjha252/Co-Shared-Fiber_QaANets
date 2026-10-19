@@ -6,12 +6,14 @@ realistic deployment.  It must be large enough that every data receiver sees at
 least its sensitivity after the span and the multiplexing optics, plus an
 engineering margin:
 
-    P_launch,min(L) = S_rx + alpha_c L + IL_mux + IL_demux + M,
+    P_fiber,min(L) = S_rx + alpha_c L + IL_demux + M,
 
 with S_rx the receiver sensitivity (dBm), alpha_c the worst classical-channel
 attenuation (dB/km) and L the span length (km).  Launching more than this only
 adds Raman, four-wave-mixing and leakage background to the quantum channel, so
 the link-budget minimum is the physically motivated operating power.
+P_fiber is defined after the input multiplexer. Its loss is incurred only
+when converting the fiber-input requirement to an upstream transmitter power.
 """
 import numpy as np
 
@@ -24,11 +26,11 @@ def worst_classical_attenuation_db_km(atten, carrier_wavelengths_nm):
 
 
 def minimum_launch_dbm(length_km, rx_sensitivity_dbm, alpha_db_km,
-                       mux_db, demux_db, margin_db):
-    """Minimum per-channel launch power (dBm) that closes the classical link."""
+                       demux_db, margin_db):
+    """Minimum per-channel fiber-input power (dBm), including the margin."""
     L = np.asarray(length_km, dtype=float)
     return (float(rx_sensitivity_dbm) + float(alpha_db_km) * L
-            + float(mux_db) + float(demux_db) + float(margin_db))
+            + float(demux_db) + float(margin_db))
 
 
 def receivers(cfg):

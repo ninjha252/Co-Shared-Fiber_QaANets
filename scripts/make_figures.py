@@ -144,7 +144,7 @@ def link_budget_lines(L):
         r0 = g.iloc[0]
         Pmin = _lb.minimum_launch_dbm(Lc, r0["rx_sensitivity_dbm"],
                                       r0["worst_classical_alpha_db_km"],
-                                      r0["mux_db"], r0["demux_db"], r0["margin_db"])
+                                      r0["demux_db"], r0["margin_db"])
         out.append((Lc, Pmin, rxs.get(rid, {"id": rid, "data_rate_gbps": np.nan}),
                     LB_STYLE.get(rid, "-.")))
     return out
@@ -661,7 +661,7 @@ def figure_s1():
                            "-", marker=MARK[i % 6], ms=ms(3.4), mfc="none",
                            color=f"C{i}", label=f"{L_:g} km, {P_:+.0f} dBm".replace("-", "\u2212"))
         ax[2].set_xlabel("prescribed FWM profile rms width (GHz)")
-        ax[2].set_ylabel(r"peak $\nu_{\rm FWM}$ over $\Omega_q$")
+        ax[2].set_ylabel(r"$\max_{\lambda}\sum_m\nu_{{\rm FWM},m}(\lambda)$")
         lg = ax[2].legend(fontsize=fs(5.6), ncol=2, loc="upper left",
                           bbox_to_anchor=(0.0, -0.28))
         lg.set_in_layout(False)

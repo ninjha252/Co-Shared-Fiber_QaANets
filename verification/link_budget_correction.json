@@ -1,0 +1,38 @@
+{
+  "base_commit": "0553fd0f24a22fea7a17702aaca44aceb16fb7bf",
+  "correction": "Fiber-input budget excludes upstream input mux loss; output demux and system margin remain 3 dB each.",
+  "operating_points": 12,
+  "receiver_distance_curve_rows": 60,
+  "base_error_sweep_rows": 60,
+  "regression_tests_passed": 36,
+  "all_60_curve_power_changes_db": -3.0,
+  "receiver_power_balance_max_residual_db": 0.0,
+  "predeclared_points_compared": 4,
+  "predeclared_comparison_relative_tolerance": 1e-11,
+  "unaffected_csv_files_byte_identical": 122,
+  "receiver_summary": {
+    "rx_10g_apd": {
+      "last_sampled_fidelity_certified_km_old": 9.0,
+      "last_sampled_fidelity_certified_km_new": 13.0,
+      "last_sampled_both_targets_km_old": 9.0,
+      "last_sampled_both_targets_km_new": 10.0
+    },
+    "rx_1g25_measured": {
+      "last_sampled_fidelity_certified_km_old": 26.0,
+      "last_sampled_fidelity_certified_km_new": 30.0,
+      "last_sampled_both_targets_km_old": 10.0,
+      "last_sampled_both_targets_km_new": 10.0
+    }
+  },
+  "source_provenance_note": "Numerical manifest records the source at execution start. Only runio.py provenance-description text was subsequently corrected; its executed version is archived in verification/link_budget_execution_source/runio.py. All numerical source hashes match the execution manifest. Earlier stage manifests and verification reports document the previous release.",
+  "runtime": {
+    "python": "3.12.14",
+    "numpy": "2.3.5",
+    "scipy": "1.17.0",
+    "matplotlib": "3.10.8",
+    "pandas": "2.2.3",
+    "pyyaml": "6.0.3",
+    "platform": "Linux-6.18.55-x86_64-with-glibc2.39"
+  },
+  "github_updated": false
+}

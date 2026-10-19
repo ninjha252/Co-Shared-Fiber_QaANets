@@ -177,7 +177,7 @@ def provenance_rows(cfg=None, scenario=None):
             "frozen allocation; the study optimizes the QUANTUM wavelength only"),
         row("classical_launch_power", "P_i0",
             f"{float(dep['classical_launch_dbm_per_channel']):.1f}", "dBm/channel",
-            "classical transmitter output", "configuration value", P,
+            "fiber input after the input multiplexer", "configuration value", P,
             (f"{cfg['map']['launch_dbm_min']:g} to {cfg['map']['launch_dbm_max']:g} "
              "dBm/channel in the operating map; link-budget minimum per receiver"
              if "map" in cfg else "-15 to 0 dBm/channel in the operating map"),
@@ -322,8 +322,9 @@ def provenance_rows(cfg=None, scenario=None):
                f"{float(cfg['classical_link']['demux_insertion_db']):g}, "
                f"{float(cfg['classical_link']['system_margin_db']):g}", "dB",
                "classical link", "declared assumption", P, "-",
-               "P_min = S_rx + alpha_c L + IL_mux + IL_demux + M with alpha_c the "
-               "worst classical attenuation")]
+               "P_fiber,min = S_rx + alpha_c L + IL_demux + M with alpha_c the "
+               "worst classical attenuation; IL_mux applies only to the upstream "
+               "transmitter requirement, P_tx,min = P_fiber,min + IL_mux")]
           if "classical_link" in cfg else []),
         row("guard_band", "g", f"{guard:g}", "GHz", "candidate domain",
             "configuration search.guard_band_ghz", P, "49, 50, 51 GHz",

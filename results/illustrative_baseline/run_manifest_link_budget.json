@@ -1,7 +1,7 @@
 {
   "run_id": "illustrative_baseline",
   "stage": "link-budget operating points and base-error sweep",
-  "started_utc": "2026-10-17T15:49:19Z",
+  "started_utc": "2026-10-19T02:36:41Z",
   "config": {
     "scenario_id": "illustrative_baseline",
     "calibration_status": "uncalibrated_illustrative",
@@ -196,14 +196,14 @@
       "gauss_hermite_check_order": 96,
       "mode_line_window_sigma": 12.0
     },
-    "_path": "/workspace/scratch/ea419e3e9e42/submission-release/project/configs/illustrative_baseline.yaml"
+    "_path": "/workspace/scratch/ea419e3e9e42/link-budget-correction/project/configs/illustrative_baseline.yaml"
   },
   "software": {
     "python": "3.12.14",
-    "numpy": "2.5.3",
-    "scipy": "1.18.1",
-    "matplotlib": "3.11.1",
-    "pandas": "3.0.5",
+    "numpy": "2.3.5",
+    "scipy": "1.17.0",
+    "matplotlib": "3.10.8",
+    "pandas": "2.2.3",
     "pyyaml": "6.0.3",
     "platform": "Linux-6.18.55-x86_64-with-glibc2.39"
   },
@@ -214,7 +214,7 @@
     "fwm.py": "76598ecad9a4a3c64f34cfb84287c7f171cce64d0914bdb2851ad083365059a8",
     "leakage.py": "f87c3444bf5ea72273093cde20d8d3ab30253be56b8eb2fea18c7e069cccd9d8",
     "legacy_compare.py": "0f4672f97eb1ead7aa9a8ae0e32755ec3a358bd94090c432407ff962e1a6ff30",
-    "link_budget.py": "9abd310d766b8cd7466ce9c2178608edc17e7fbdf2ffbe1dc185c5a9ba3634bc",
+    "link_budget.py": "44758049765def2d025abcb25a272007e9403e33fd9fd56f5973cc3adcfe4d5a",
     "local_protocol.py": "c13b2d73320a9adec61df5f767cf3a9835e7ad72f7412a76b91019a9acbbad2c",
     "mode_reference.py": "8badb4b86f6c37f05931a6fc69a03ee31515cae31bf4ef45a8a8030025e46aa6",
     "modes.py": "2f49db163a85145fd11dfbd9bee9d252195d2cd4661608f834436fe4bdae675d",
@@ -225,7 +225,7 @@
     "protocol.py": "7bc6488cbb2358fd2a72c54c3bf93109eb9a04c355079b53019936ff5c4ed197",
     "raman.py": "e7fa8b4b798c59c3a732db9f292e0d5064d9b6da776313699eceb65dd0a3a4c0",
     "reliability.py": "d808d5c60f4467167a7179d4e5a206d41882944c8dc64e8d4214f5ba1e99aa9d",
-    "runio.py": "4fd0803469ea9df0d28fd9de7b34c35169c3d8613949c61011b90cd7c69ef0f6",
+    "runio.py": "a8d43927d117f521df35c1ed8c7d89a4db07177484a2697a28c24cced9990014",
     "steane.py": "379cb574e8d7428ece4d9b62a463b283a317aa871cef1ed18af28fc4b9163575",
     "units.py": "ec70fc54ff8a8126d7088644024c702160f804d30e0ea37fe547ecfbb73588fa",
     "xpm.py": "7dd1afad0b09b7b3a101c2a5131c5caf0b04794fe992f5fa3c2114b2e91bd0c1"
@@ -240,8 +240,9 @@
     "certificate_threshold_q_star": 0.022665066886963285
   },
   "notes": [
-    "Launch power at the link-budget minimum for each declared receiver; e0 swept over published anchors with the optical solution fixed."
+    "Launch power at the link-budget minimum for each declared receiver; e0 swept over published anchors with the optical solution fixed.",
+    "Classical launch powers are at the fiber input: receiver sensitivity + span loss + output demultiplexer loss + 3 dB system margin. Input multiplexer loss is excluded and applies only upstream."
   ],
-  "wall_time_s": 361.559,
-  "finished_utc": "2026-10-17T15:55:21Z"
+  "wall_time_s": 279.107,
+  "finished_utc": "2026-10-19T02:41:20Z"
 }

@@ -7,7 +7,7 @@ Two questions are answered here.
 1. When every classical channel is launched at the smallest power that still
    closes its data link, which quantum wavelength is selected and is it
    certified?  The minimum launch power follows from the receiver sensitivity,
-   the span loss, the multiplexing optics and a margin (src/link_budget.py),
+   the span loss, the output demultiplexer and a margin (src/link_budget.py),
    for each receiver declared in the configuration.
 
 2. How large may the per-traversal base error e0 be before certification is
@@ -99,7 +99,7 @@ def main():
     for rx in lb.receivers(cfg):
         for L in cfg["classical_link"]["evaluation_lengths_km"]:
             P = float(lb.minimum_launch_dbm(L, rx["rx_sensitivity_dbm"], alpha_c,
-                                            mux, demux, margin))
+                                            demux, margin))
             points.append(dict(kind="link-budget minimum", receiver=rx["id"],
                                receiver_label=rx["label"],
                                rx_sensitivity_dbm=rx["rx_sensitivity_dbm"],
@@ -159,7 +159,7 @@ def main():
     for rx in lb.receivers(cfg):
         for L in curve_L:
             P = float(lb.minimum_launch_dbm(L, rx["rx_sensitivity_dbm"], alpha_c,
-                                            mux, demux, margin))
+                                            demux, margin))
             eta, nu, sg = optical_solution(cfg, f_allowed, float(L), P)
             e0m_all = pr.e0_max_for_certification(eta, nu, sg, q_star)
             nom = outcome(eta, nu, sg, e0_nom, lam, F_min, Y_min)
@@ -183,6 +183,9 @@ def main():
     man.tolerance("certificate_threshold_q_star", q_star)
     man.note("Launch power at the link-budget minimum for each declared receiver; "
              "e0 swept over published anchors with the optical solution fixed.")
+    man.note("Classical launch powers are at the fiber input: receiver sensitivity "
+             "+ span loss + output demultiplexer loss + 3 dB system margin. "
+             "Input multiplexer loss is excluded and applies only upstream.")
     man.save(os.path.join(d, "run_manifest_link_budget.json"))
     print(f"\nlink budget and base-error sweep: {len(lb_rows)} points "
           f"({time.time()-t0:.0f} s)")
